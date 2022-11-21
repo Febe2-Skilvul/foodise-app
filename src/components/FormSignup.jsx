@@ -33,7 +33,7 @@ const FormSignup = () => {
           type="text"
           name="username"
           onChange={(e) => getDataSignup(e)}
-          placeholder="Enter Username"
+          placeholder="Masukan Nama"
         />
       </Form.Group>
       <Form.Group className="mb-3">
@@ -41,7 +41,7 @@ const FormSignup = () => {
           type="email"
           name="email"
           onChange={(e) => getDataSignup(e)}
-          placeholder="Enter email"
+          placeholder="Masukan Email"
         />
       </Form.Group>
       <Form.Group className="mb-3">
@@ -49,7 +49,7 @@ const FormSignup = () => {
           type="password"
           name="password"
           onChange={(e) => getDataSignup(e)}
-          placeholder="Password"
+          placeholder="Kata Sandi"
         />
       </Form.Group>
       <Button
