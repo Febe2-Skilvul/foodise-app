@@ -22,11 +22,7 @@ const FormSignup = () => {
     console.log(dataSignup);
   };
   return (
-    <Form
-      style={{
-        marginTop: '100px',
-      }}
-      onSubmit={(e) => handleRegister(e)}>
+    <Form onSubmit={(e) => handleRegister(e)}>
       <TextOne colored={'Now'}>Join</TextOne>
       <Form.Group className="mb-3">
         <Form.Control
@@ -52,10 +48,41 @@ const FormSignup = () => {
           placeholder="Kata Sandi"
         />
       </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Select aria-label="Gender">
+          <option>Gender</option>
+          <option value="male">Pria</option>
+          <option value="female">Wanita</option>
+        </Form.Select>
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="number"
+          name="weight"
+          onChange={(e) => getDataSignup(e)}
+          placeholder="Berat Badan"
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Control
+          type="number"
+          name="height"
+          onChange={(e) => getDataSignup(e)}
+          placeholder="Tinggi Badan"
+        />
+      </Form.Group>
+      <Form.Select aria-label="Aktivitas Olahraga">
+        <option>Olahraga dalam seminggu</option>
+        <option value={1.2}>tidak olahraga</option>
+        <option value={1.37}>1-3 kali</option>
+        <option value={1.55}> 3-5 kali</option>
+        <option value={1.725}> 5-6 kali </option>
+        <option value={1.9}> 2 kali dalam sehari</option>
+      </Form.Select>
       <Button
         type="submit"
         size="lg"
-        className="w-100 button button-main">
+        className="w-100 mt-3 button button-main">
         Daftar
       </Button>
     </Form>
