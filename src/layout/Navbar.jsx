@@ -15,6 +15,11 @@ const Appbar = () => {
     <Navbar
       style={{
         backgroundColor: '#fff',
+        position: 'sticky',
+        top: '0px',
+        transition: '1s',
+        borderBottom: '#f0f0f0 solid 2px',
+        zIndex: '1000',
       }}
       expand="lg">
       <Container>

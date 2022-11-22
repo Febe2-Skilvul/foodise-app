@@ -107,6 +107,21 @@ code {
   padding: 2em 0;
   border-top: #f0f0f0 solid 2px;
 }
+.text-carbon {
+  font-size: 18px;
+  font-weight: 500;
+  color: #b54444;
+}
+.text-calori {
+  font-size: 18px;
+  font-weight: 500;
+  color: #227880;
+}
+.text-card {
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+}
 @media screen and (max-width: 980px) {
   .cardHero {
     scale: 0.8;

@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
       <Container
         style={{
           minHeight: '100vh',
-          borderTop: 'solid 2px #D9D9D9',
           paddingTop: '20px',
         }}>
         <div className="d-block d-md-none">

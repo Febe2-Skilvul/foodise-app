@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Category from '../../components/Category';
+import ListFoods from '../../components/ListFoods';
 
 import ServicePortal from '../../components/Portal';
 
@@ -11,6 +12,7 @@ const Home = () => {
       <Col className="mt-5">
         <ServicePortal user={user !== null ? user : ''} />
         <Category />
+        <ListFoods />
       </Col>
     </Row>
   );
