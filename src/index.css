@@ -122,6 +122,11 @@ code {
   font-size: 18px;
   font-weight: 400;
 }
+
+.bg-profile{
+
+}
+
 @media screen and (max-width: 980px) {
   .cardHero {
     scale: 0.8;
