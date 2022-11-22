@@ -8,7 +8,7 @@ const ListFoods = () => {
   return (
     <>
       <Stack
-        className="  flex-row flex-wrap justify-content-center gap-5"
+        className="flex-row flex-wrap justify-content-center gap-5"
         style={{
           marginTop: '50px',
         }}>

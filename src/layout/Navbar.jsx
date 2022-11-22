@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Container, Dropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { loginCtx } from '../app/context/LoginContext';
 import Icon from '../components/atoms/Icon';
 import Search from '../components/Search';
 
 const Appbar = () => {
   const [isLogin, setIsLogin] = useState(false);
+
+  const { setShow } = useContext(loginCtx);
 
   const handleLogout = () => {
     localStorage.removeItem('ActiveUser');
@@ -78,7 +81,11 @@ const Appbar = () => {
                 </Dropdown.Item>
               ) : (
                 <>
-                  <Dropdown.Item link="#">Log in</Dropdown.Item>
+                  <Dropdown.Item
+                    link="#"
+                    onClick={() => setShow(true)}>
+                    Log in
+                  </Dropdown.Item>
                   <Link
                     to={'/signup'}
                     className="text-decoration-none text-success text-center "
