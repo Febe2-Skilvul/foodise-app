@@ -17,6 +17,27 @@ code {
 .button-main:hover {
   background: #19555b;
 }
+.button-pill {
+  max-width: 200px;
+  height: 50px;
+  border-radius: 23px;
+  border: 2px solid #f0f0f0;
+  color: #3bacb6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  gap: 10px;
+  padding: 0 2em;
+}
+.button-pill:hover {
+  border: #227880 2px solid;
+  color: #19555b;
+}
+.bg {
+  background: #fff;
+}
 .avatar-menu {
   width: 140px;
   height: 50px;
@@ -73,6 +94,34 @@ code {
   color: #9e9e9e;
   font-weight: 500;
 }
+.text-item-gray {
+  color: #9e9e9e;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+.category {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 2em 0;
+  border-top: #f0f0f0 solid 2px;
+}
+.text-carbon {
+  font-size: 18px;
+  font-weight: 500;
+  color: #b54444;
+}
+.text-calori {
+  font-size: 18px;
+  font-weight: 500;
+  color: #227880;
+}
+.text-card {
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+}
 @media screen and (max-width: 980px) {
   .cardHero {
     scale: 0.8;
@@ -87,5 +136,8 @@ code {
   }
   .btn-service {
     width: 250px;
+  }
+  .category {
+    overflow-x: scroll;
   }
 }
