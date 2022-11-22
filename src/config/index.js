@@ -16,7 +16,7 @@ const services = [
   },
 ];
 
-const CardFeature = [
+const features = [
   {
     logo: '/icons/food.svg',
     title: 'Food Nutrition',
@@ -60,4 +60,4 @@ const CardFood = [
   },
 ];
 
-export { services, CardFeature, CardFood };
+export { services, features, CardFood };
