@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import Category from '../../components/Category';
+
 import ServicePortal from '../../components/Portal';
 
 const Home = () => {
@@ -8,6 +10,7 @@ const Home = () => {
     <Row className="justify-content-md-center">
       <Col className="mt-5">
         <ServicePortal user={user !== null ? user : ''} />
+        <Category />
       </Col>
     </Row>
   );
