@@ -8,6 +8,7 @@ import Nutrition from '../../components/Nutrition';
 import fakeDetail from '../../config/detail';
 
 import { porsiCtx } from '../../app/context/PorsiContext';
+import ServicePortal from '../../components/Portal';
 
 const Detail = () => {
   const [open, setOpen] = useState(false);
@@ -28,6 +29,7 @@ const Detail = () => {
 
   return (
     <>
+      <ServicePortal />
       {fakeDetail ? (
         <Row
           style={{
@@ -129,7 +131,7 @@ const Detail = () => {
                       <div
                         className="col-6 p-3"
                         style={{
-                          borderRight: '1px solid black',
+                          borderRight: '1px solid #bfbfbf',
                         }}>
                         <p
                           style={{
@@ -155,7 +157,7 @@ const Detail = () => {
                       <div
                         className="p-3 col-12 d-flex flex-column"
                         style={{
-                          borderTop: 'solid 1px #000',
+                          borderTop: 'solid 1px #bfbfbf',
                         }}>
                         <p
                           style={{

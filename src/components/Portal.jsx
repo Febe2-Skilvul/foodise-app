@@ -22,12 +22,14 @@ const ServicePortal = ({ user = ' ' }) => {
           value={2}
           icon={'/icons/food-bucket.svg'}
           name={'Food Today'}
+          path={'#'}
         />
         <PortalButton
           color={'#EBB376'}
           value={100}
           icon={'/icons/calory.svg'}
           name={'Kalori'}
+          path={'#'}
         />
 
         <PortalButton
@@ -35,6 +37,14 @@ const ServicePortal = ({ user = ' ' }) => {
           value={99}
           icon={'/icons/carbon.svg'}
           name={'Carbon'}
+          path={'#'}
+        />
+        <PortalButton
+          color={'#000000'}
+          value={30}
+          icon={'/icons/spoon.svg'}
+          name={'Favorite'}
+          path={'/favorite'}
         />
       </Stack>
 
