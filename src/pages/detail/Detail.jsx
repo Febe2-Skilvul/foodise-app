@@ -3,10 +3,14 @@ import './detail.css';
 import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
 import Nutrition from '../../components/Nutrition';
 import fakeDetail from '../../config/detail';
+import { useContext } from 'react';
+import { porsiCtx } from '../../app/context/PorsiContext';
 
 const Detail = () => {
   const [open, setOpen] = useState(false);
-  console.log(fakeDetail);
+  const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
+
+  console.log(porsi);
   return (
     <>
       {fakeDetail ? (
@@ -149,7 +153,8 @@ const Detail = () => {
                         <div className=" w-100 d-flex flex-row align-items-center justify-content-between">
                           <Button
                             variant="light"
-                            className="btn-count shadow-sm">
+                            className="btn-count shadow-sm"
+                            onClick={() => handleMinus()}>
                             -
                           </Button>
                           <p
@@ -160,7 +165,8 @@ const Detail = () => {
                           </p>
                           <Button
                             variant="light"
-                            className="btn-count shadow-sm">
+                            className="btn-count shadow-sm"
+                            onClick={() => handlePlus()}>
                             +
                           </Button>
                         </div>
