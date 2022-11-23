@@ -11,7 +11,7 @@ const PorsiCtxProvider = ({ children }) => {
     setPorsi((prev) => prev + 1);
   };
   const handleMinus = () => {
-    if (porsi > 0) {
+    if (porsi > 1) {
       setPorsi((prev) => prev - 1);
     }
   };
