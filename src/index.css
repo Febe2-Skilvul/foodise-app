@@ -111,10 +111,12 @@ code {
   font-size: 18px;
   font-weight: 500;
   color: #b54444;
+  margin: 0;
 }
 .text-calori {
   font-size: 18px;
   font-weight: 500;
+  margin: 0;
   color: #227880;
 }
 .text-card {
