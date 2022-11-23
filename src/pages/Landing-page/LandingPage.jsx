@@ -4,7 +4,7 @@ import { TextOne } from '../../components/atoms/Fonts';
 import Features from '../../components/Features';
 import Hero from '../../components/Hero';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
     <Row>
       <Hero />
@@ -14,6 +14,6 @@ function LandingPage() {
       </div>
     </Row>
   );
-}
+};
 
 export default LandingPage;
