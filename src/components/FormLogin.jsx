@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { loginCtx } from '../app/context/LoginContext';
+import API from '../service/api';
 
 const FormLogin = () => {
   const [dataLogin, setDataLogin] = useState();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const { setIsLogin, setUser, setShow } = useContext(loginCtx);
 
   const navigate = useNavigate();
   const getInputLogin = (e) => {
@@ -19,7 +22,29 @@ const FormLogin = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('login');
+    API.post(`/login`,{email:dataLogin.email, password: dataLogin.password})
+    .then((res) => {
+      if(res.status === 200) {
+        setIsLogin(true)
+        setUser(localStorage.setItem('ActiveUser', JSON.stringify(res?.data?.token)))
+        setShow(false)
+        // if(res.data.status === "admin"){
+        //   navigate('/adminhome')
+
+        // } else {
+        //   navigate('/home')
+        // }
+          navigate('/home')
+      } else{
+        console.log("error");
+        setIsLogin(false)
+        setUser('')
+      }
+    })
+    .catch((error) => {
+      console.log("ERROR Post", error);
+      setOpen(true)
+    })
   };
   return (
     <Form onSubmit={(e) => handleLogin(e)}>

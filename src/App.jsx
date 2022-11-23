@@ -3,7 +3,7 @@ import Layout from './layout/Layout';
 import Detail from './pages/Detail/Detail';
 import Home from './pages/home/Home';
 import LandingPage from './pages/Landing-page/LandingPage';
-import Signup from './pages/Signup/Signup';
+import Signup from './pages/signup/Signup';
 
 const App = () => {
   return (
