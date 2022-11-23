@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './detail.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
+import ListFoods from '../../components/ListFoods';
 import Nutrition from '../../components/Nutrition';
 import fakeDetail from '../../config/detail';
 
@@ -110,7 +110,7 @@ const Detail = () => {
                       <div
                         className="col-6 p-3"
                         style={{
-                          borderRight: '1px solid #bfbfbf',
+                          borderRight: '1px solid black',
                         }}>
                         <p
                           style={{
@@ -136,7 +136,7 @@ const Detail = () => {
                       <div
                         className="p-3 col-12 d-flex flex-column"
                         style={{
-                          borderTop: 'solid 1px #bfbfbf',
+                          borderTop: 'solid 1px #000',
                         }}>
                         <p
                           style={{
