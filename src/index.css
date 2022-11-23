@@ -123,7 +123,6 @@ code {
   font-weight: 400;
 }
 
-
 .carbon-card {
   width: 365px;
   height: 325px;
@@ -168,12 +167,6 @@ code {
   height: 50px;
   background-color: '#fff';
 }
-
-.bg-profile{
-
-}
-
-
 @media screen and (max-width: 980px) {
   .cardHero {
     scale: 0.8;
