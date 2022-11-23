@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
+import ListFoods from '../../components/ListFoods';
 import Nutrition from '../../components/Nutrition';
 import fakeDetail from '../../config/detail';
 
@@ -106,13 +107,64 @@ const Detail = () => {
                 <div className="carbon-card d-flex justify-content-between">
                   <div>
                     <div className="d-flex flex-row flex-wrap tabel-data">
-                      <div className="col-6">
-                        Carbon {fakeDetail.healthScore}
+                      <div
+                        className="col-6 p-3"
+                        style={{
+                          borderRight: '1px solid black',
+                        }}>
+                        <p
+                          style={{
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            margin: '0',
+                          }}>
+                          Calori
+                        </p>
+                        <p>{fakeDetail.healthScore} KgCO2</p>
                       </div>
-                      <div className="col-6">
-                        Calori {fakeDetail.healthScore}
+                      <div className="col-6 p-3">
+                        <p
+                          style={{
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            margin: '0',
+                          }}>
+                          Carbon
+                        </p>{' '}
+                        {fakeDetail.healthScore} Kkal
                       </div>
-                      <div className=" col-8">Porsi</div>
+                      <div
+                        className="p-3 col-12 d-flex flex-column"
+                        style={{
+                          borderTop: 'solid 1px #000',
+                        }}>
+                        <p
+                          style={{
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            margin: '0',
+                          }}>
+                          Porsi
+                        </p>
+                        <div className=" w-100 d-flex flex-row align-items-center justify-content-between">
+                          <Button
+                            variant="light"
+                            className="btn-count shadow-sm">
+                            -
+                          </Button>
+                          <p
+                            style={{
+                              margin: '0',
+                            }}>
+                            0
+                          </p>
+                          <Button
+                            variant="light"
+                            className="btn-count shadow-sm">
+                            +
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <Button
