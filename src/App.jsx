@@ -16,9 +16,6 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
-<<<<<<< HEAD
-            <Route path="/food/:id" element={<Detail />} />
-=======
             <Route
               path="/home/:id"
               element={
@@ -27,7 +24,6 @@ const App = () => {
                 </PorsiCtxProvider>
               }
             />
->>>>>>> b0b0e01c38ccace56d991675f304c95d87e5f2e3
           </Routes>
         </Layout>
       </BrowserRouter>
