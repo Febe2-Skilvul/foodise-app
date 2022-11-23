@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './detail.css';
 import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
 import Nutrition from '../../components/Nutrition';
 import fakeDetail from '../../config/detail';
+import { useContext } from 'react';
+import { porsiCtx } from '../../app/context/PorsiContext';
 
 const Detail = () => {
   const [open, setOpen] = useState(false);
-  console.log(fakeDetail);
+  const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
+  const [calori, setCalori] = useState(100);
+  const [carbon, setCarbon] = useState(67);
+  const initial = {
+    carbon: 56,
+    calori: 44,
+  };
+  const handleCount = () => {
+    setCalori(() => initial.calori * porsi);
+    setCarbon(() => initial.carbon * porsi);
+  };
+  useEffect(() => {
+    handleCount();
+  }, [porsi]);
+
   return (
     <>
       {fakeDetail ? (
@@ -120,7 +136,7 @@ const Detail = () => {
                           }}>
                           Calori
                         </p>
-                        <p>{fakeDetail.healthScore} KgCO2</p>
+                        <p>{calori} KgCO2</p>
                       </div>
                       <div className="col-6 p-3">
                         <p
@@ -131,7 +147,7 @@ const Detail = () => {
                           }}>
                           Carbon
                         </p>{' '}
-                        {fakeDetail.healthScore} Kkal
+                        {carbon} Kkal
                       </div>
                       <div
                         className="p-3 col-12 d-flex flex-column"
@@ -149,18 +165,20 @@ const Detail = () => {
                         <div className=" w-100 d-flex flex-row align-items-center justify-content-between">
                           <Button
                             variant="light"
-                            className="btn-count shadow-sm">
+                            className="btn-count shadow-sm"
+                            onClick={() => handleMinus()}>
                             -
                           </Button>
                           <p
                             style={{
                               margin: '0',
                             }}>
-                            0
+                            {porsi}
                           </p>
                           <Button
                             variant="light"
-                            className="btn-count shadow-sm">
+                            className="btn-count shadow-sm"
+                            onClick={() => handlePlus()}>
                             +
                           </Button>
                         </div>
