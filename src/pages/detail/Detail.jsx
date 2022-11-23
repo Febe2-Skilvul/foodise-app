@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './detail.css';
 import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
 import Nutrition from '../../components/Nutrition';
@@ -9,8 +9,20 @@ import { porsiCtx } from '../../app/context/PorsiContext';
 const Detail = () => {
   const [open, setOpen] = useState(false);
   const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
+  const [calori, setCalori] = useState(100);
+  const [carbon, setCarbon] = useState(67);
+  const initial = {
+    carbon: 56,
+    calori: 44,
+  };
+  const handleCount = () => {
+    setCalori(() => initial.calori * porsi);
+    setCarbon(() => initial.carbon * porsi);
+  };
+  useEffect(() => {
+    handleCount();
+  }, [porsi]);
 
-  console.log(porsi);
   return (
     <>
       {fakeDetail ? (
@@ -124,7 +136,7 @@ const Detail = () => {
                           }}>
                           Calori
                         </p>
-                        <p>{fakeDetail.healthScore} KgCO2</p>
+                        <p>{calori} KgCO2</p>
                       </div>
                       <div className="col-6 p-3">
                         <p
@@ -135,7 +147,7 @@ const Detail = () => {
                           }}>
                           Carbon
                         </p>{' '}
-                        {fakeDetail.healthScore} Kkal
+                        {carbon} Kkal
                       </div>
                       <div
                         className="p-3 col-12 d-flex flex-column"
@@ -161,7 +173,7 @@ const Detail = () => {
                             style={{
                               margin: '0',
                             }}>
-                            0
+                            {porsi}
                           </p>
                           <Button
                             variant="light"
