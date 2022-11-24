@@ -146,9 +146,62 @@
 .button-track:hover p {
   color: #fff;
 }
+.track-food-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 50px;
+}
+.track-food-box {
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.track-food-box p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a0a0a;
+}
+.track-food-box .box-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.track-food-nutri {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.track-food-nutri p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a0a0a;
+}
+.track-food-nutri p span {
+  font-weight: 500;
+  color: #000;
+  font-size: 0.8em;
+}
 @media screen and (max-width: 980px) {
   .card-track {
     scale: 0.8;
     margin: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .track-food-box {
+    gap: 10px;
+  }
+  .track-food-nutri {
+    align-items: flex-start;
+    justify-content: center;
   }
 }
