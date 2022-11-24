@@ -40,7 +40,7 @@ const TrackPortal = () => {
           unit="Kkal"
         />
       </Stack>
-      <Stack className="d-flex d-md-none shadow rounded flex-row   justify-content-center">
+      <Stack className="d-flex d-md-none shadow rounded flex-row  justify-content-center">
         <CircleProgress
           color={'#455A64'}
           name="Carbon"

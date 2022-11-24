@@ -190,6 +190,15 @@
   color: #000;
   font-size: 0.8em;
 }
+.carbon-msg {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  background: #19555b;
+  color: #fff;
+  border-radius: 6px;
+}
 @media screen and (max-width: 980px) {
   .card-track {
     scale: 0.8;
