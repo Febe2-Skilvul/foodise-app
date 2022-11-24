@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Stack } from 'react-bootstrap';
 import TrackCarbon from './TrackCarbon';
+import TrackCardio from './TrackCardio';
 import TrackFoodList from './TrackFoodList';
 import TrackMenu from './TrackMenu';
 
@@ -14,7 +15,7 @@ const TrackContent = () => {
       }}>
       <TrackMenu />
       <Stack className="w-100">
-        <TrackCarbon />
+        <TrackCardio />
       </Stack>
     </Stack>
   );
