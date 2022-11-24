@@ -7,6 +7,7 @@ import Favorites from './pages/Favorites/Favorites';
 import Home from './pages/home/Home';
 import LandingPage from './pages/Landing-page/LandingPage';
 import Signup from './pages/signup/Signup';
+import TrackingPage from './pages/tracking';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/favorite" element={<Favorites />} />
+            <Route path="/track" element={<TrackingPage />} />
             <Route
               path="/home/:id"
               element={
