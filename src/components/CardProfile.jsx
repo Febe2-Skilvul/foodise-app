@@ -1,5 +1,4 @@
 import React from "react";
-import { TextOne } from "./atoms/Fonts";
 
 function CardProfile() {
   return (
