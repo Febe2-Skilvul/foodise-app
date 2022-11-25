@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { filterCtx } from '../app/context/FilterContext';
 import Icon from './atoms/Icon';
 
 const Search = () => {
+  const { setQuery } = useContext(filterCtx);
   const [search, setSearch] = useState('');
 
   const handleSearch = (e) => {
-    console.log(search);
+    e.preventDefault();
+
+    return setQuery(search);
   };
   return (
     <Form

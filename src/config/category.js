@@ -25,7 +25,7 @@ const categories = [
     iconB: '/icons/black/carrot-black.svg',
   },
   {
-    name: 'main',
+    name: 'main course',
     icon: '/icons/bowl-rice-solid.svg',
     iconB: '/icons/black/bowl-rice-black.svg',
   },

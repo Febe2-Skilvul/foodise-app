@@ -6,7 +6,7 @@ import PortalButton from './atoms/PortalButton';
 
 const ServicePortal = ({ user = ' ' }) => {
   return (
-    <Stack className="p-4  p-3 mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
+    <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
       <Stack className="d-flex flex-row justify-content-between">
         <TextOne colored={user}>Hii</TextOne>
         <Link to={'/track'} className="text-decoration-none">
@@ -16,7 +16,7 @@ const ServicePortal = ({ user = ' ' }) => {
           </Button>
         </Link>
       </Stack>
-      <Stack className="d-flex shadow rounded flex-row justify-content-between p-4">
+      <Stack className="p-1 p-md-4 d-flex shadow rounded flex-row justify-content-between">
         <PortalButton
           color={'#3BACB6'}
           value={2}
