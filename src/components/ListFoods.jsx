@@ -1,10 +1,20 @@
+import { useEffect } from 'react';
 import { Stack } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchFoods } from '../app/redux/foods/FoodSlice';
 
 import { fakeData } from '../config/foods';
 import CardFood from './CardFood';
 
 const ListFoods = () => {
-  // console.log(foods);
+  const foods = useSelector((state) => state.list);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFoods({ queri: 'cake', category: 'dessert' }));
+  }, []);
+
+  console.log(foods);
   return (
     <>
       <Stack
@@ -12,15 +22,17 @@ const ListFoods = () => {
         style={{
           marginTop: '50px',
         }}>
-        {fakeData.map((food, i) => {
+        {foods.foods.map((food, i) => {
+          const calori = food.nutrition.nutrients[0].amount;
+          const carbon = food.nutrition.nutrients[1].amount;
           return (
             <CardFood
               key={i}
               name={food.title}
               id={food.id}
               img={food.image}
-              calori={230}
-              carbon={20}
+              calori={calori}
+              carbon={carbon}
             />
           );
         })}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Icon from './atoms/Icon';
 
 const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
+  const disCarbon = carbon.toFixed(1);
+  const disCalori = calori.toFixed(0);
   return (
     <Card
       style={{
@@ -19,8 +21,24 @@ const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
                 margin: '0',
                 height: '50px',
               }}>
-              <p className="text-calori">{calori} Kkal</p>
-              <p className="text-carbon">{carbon} Cho2</p>
+              <p className="text-calori">
+                {disCalori}{' '}
+                <span
+                  style={{
+                    fontSize: '12px',
+                  }}>
+                  Kkal
+                </span>{' '}
+              </p>
+              <p className="text-carbon">
+                {disCarbon}{' '}
+                <span
+                  style={{
+                    fontSize: '12px',
+                  }}>
+                  Kg/C02
+                </span>{' '}
+              </p>
             </div>
 
             {favorite ? (
