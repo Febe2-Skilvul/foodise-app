@@ -33,7 +33,11 @@ const TrackMenu = () => {
     color: '#fff',
   };
   return (
-    <Stack className="d-flex flex-row justify-content-center gap-5">
+    <Stack
+      className="d-flex flex-row justify-content-center gap-5"
+      style={{
+        marginTop: '50px',
+      }}>
       {btn.map((menu, i) => {
         return (
           <Button
