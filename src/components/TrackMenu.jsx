@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Stack } from 'react-bootstrap';
+import { trackCtx } from '../app/context/TrackContext';
 import Icon from './atoms/Icon';
 
 const TrackMenu = () => {
   const active = 'Foods';
-
+  const { content, setContent } = useContext(trackCtx);
   const btn = [
     {
       name: 'Foods',
-      iconB: '/icons/black/spoon-black.svg',
+      iconB: '/icons/spoon.svg',
       iconW: '/icons/spoons-white.svg',
     },
     {
-      name: 'Nutrisi',
+      name: 'Nutrition',
       iconB: '/icons/black/chart-black.svg',
       iconW: '/icons/chart-white.svg',
     },
@@ -42,9 +43,10 @@ const TrackMenu = () => {
         return (
           <Button
             key={i}
-            style={menu.name === active ? style : null}
-            className="button-track shadow-sm d-flex flex-row gap-2">
-            {active === menu.name ? (
+            style={menu.name === content ? style : null}
+            className="button-track shadow-sm d-flex flex-row gap-2"
+            onClick={() => setContent(menu.name)}>
+            {content === menu.name ? (
               <span className="icon">
                 <Icon image={menu.iconW} />
               </span>
@@ -55,7 +57,7 @@ const TrackMenu = () => {
             )}
 
             <p
-              style={menu.name === active ? style : null}
+              style={menu.name === content ? style : null}
               className="d-none d-md-block">
               {menu.name}
             </p>
