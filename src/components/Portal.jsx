@@ -9,7 +9,7 @@ const ServicePortal = ({ user = ' ' }) => {
     <Stack className="p-4  p-3 mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
       <Stack className="d-flex flex-row justify-content-between">
         <TextOne colored={user}>Hii</TextOne>
-        <Link to={'/booked'} className="text-decoration-none">
+        <Link to={'/track'} className="text-decoration-none">
           <Button className="button-pill bg-white shadow-sm">
             <Icon image={'/icons/tracking.svg'} />
             <span className="d-none d-md-block">Tracking</span>
