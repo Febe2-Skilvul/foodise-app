@@ -16,6 +16,23 @@ code {
 }
 .button-main:hover {
   background: #19555b;
+  border: #19555b;
+}
+.button-out-main {
+  background: #fff;
+  width: 100px;
+  height: 40px;
+  color: #19555b;
+  border: #f0f0f0 solid 2px;
+  transition: 1s;
+  animation: alternate;
+}
+.button-out-main:hover {
+  width: 200px;
+  height: 40px;
+  background: #227880;
+  color: #fff;
+  border: #19555b;
 }
 .button-pill {
   max-width: 200px;
@@ -130,6 +147,18 @@ code {
   height: 50px;
   background-color: '#fff';
 }
+.recommended-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.section-landingpage {
+  margin-top: 100px;
+  border-top: #f0f0f0 2px solid;
+  box-sizing: border-box;
+  padding-top: 50px;
+}
 @media screen and (max-width: 980px) {
   .cardHero {
     scale: 0.8;
@@ -147,5 +176,13 @@ code {
   }
   .category {
     overflow-x: scroll;
+  }
+  .section-landingpage {
+    box-sizing: border-box;
+    padding-top: 50px;
+  }
+  .recommended-box {
+    flex-flow: column;
+    align-items: center;
   }
 }
