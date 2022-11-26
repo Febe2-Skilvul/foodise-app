@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFoods } from '../../app/redux/foods/FoodSlice';
 import Category from '../../components/Category';
 import ListFoods from '../../components/ListFoods';
 

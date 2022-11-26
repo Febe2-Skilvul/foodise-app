@@ -9,6 +9,8 @@ import fakeDetail from '../../config/detail';
 
 import { porsiCtx } from '../../app/context/PorsiContext';
 import ServicePortal from '../../components/Portal';
+import { TextOne } from '../../components/atoms/Fonts';
+import RecommendedFood from '../../components/RecommendedFood';
 
 const Detail = () => {
   const [open, setOpen] = useState(false);
@@ -199,6 +201,10 @@ const Detail = () => {
               </Stack>
             </Stack>
           </Col>
+          <div className="mt-5 p-md-5 d-flex align-items-center flex-column section-landingpage gap-5">
+            <TextOne colored={'Foods'}>Our</TextOne>
+            <RecommendedFood />
+          </div>
         </Row>
       ) : (
         <div>food kosong</div>

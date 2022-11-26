@@ -1,0 +1,76 @@
+.container-recipe {
+  position: relative;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  transition: 1s;
+}
+.container-recipe .card-recipe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.container-recipe .card-recipe:nth-child(even) {
+  flex-direction: column-reverse;
+}
+.container-recipe .card-recipe .img-recipe {
+  position: relative;
+  width: 270px;
+  height: 250px;
+  background: #000;
+}
+.container-recipe .card-recipe .img-recipe img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container-recipe .card-recipe .content-recipe {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-recipe .card-recipe .content-recipe div {
+  padding: 20px;
+  text-align: center;
+}
+@media (max-width: 1000px) {
+  .container-recipe {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    margin: 50px;
+  }
+  .container-recipe .card-recipe {
+    flex-direction: row;
+    margin: 10px 0;
+  }
+  .container-recipe .card-recipe:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .container-recipe .card-recipe .img-recipe,
+  .container-recipe .card-recipe .content-recipe {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-recipe .card-recipe {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .container-recipe .card-recipe:nth-child(even) {
+    flex-direction: column;
+  }
+  .container-recipe .card-recipe .img-recipe,
+  .container-recipe .card-recipe .content-recipe {
+    width: 100%;
+  }
+  .container-recipe .card-recipe .content-recipe {
+    height: 200px;
+  }
+}
