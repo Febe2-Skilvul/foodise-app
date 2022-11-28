@@ -1,8 +1,11 @@
 import React from 'react'
+import FormProfile from '../../components/FormProfile'
 
 function EditProfile() {
   return (
-    <div>EditProfile</div>
+    <div>
+      <FormProfile/>
+    </div>
   )
 }
 

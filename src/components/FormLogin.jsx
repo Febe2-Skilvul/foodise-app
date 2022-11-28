@@ -22,7 +22,7 @@ const FormLogin = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    API.post(`/login`,{email:dataLogin.email, password: dataLogin.password})
+    API.post(`/signin`,{email:dataLogin.email, password: dataLogin.password})
     .then((res) => {
       if(res.status === 200) {
         setIsLogin(true)

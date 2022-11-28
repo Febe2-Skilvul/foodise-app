@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: `https://reqres.in/api/`
+  baseURL: `foodise-gpa-be2.herokuapp.com/api/`
 });
