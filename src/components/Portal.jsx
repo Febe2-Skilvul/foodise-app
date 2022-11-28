@@ -35,7 +35,7 @@ const ServicePortal = ({ user = ' ' }) => {
         <PortalButton
           color={'#000000'}
           value={99}
-          icon={'/icons/carbon.svg'}
+          icon={'/icons/cloud-gray.svg'}
           name={'Carbon'}
           path={'#'}
         />

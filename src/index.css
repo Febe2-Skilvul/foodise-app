@@ -12,15 +12,22 @@ code {
     monospace;
 }
 .button-main {
+  width: 150px;
+  height: 40px;
   background: #227880;
+  transition: 1s;
+  animation: alternate;
+  border: #19555b;
 }
 .button-main:hover {
   background: #19555b;
   border: #19555b;
+  width: 200px;
+  height: 40px;
 }
 .button-out-main {
   background: #fff;
-  width: 100px;
+  width: 150px;
   height: 40px;
   color: #19555b;
   border: #f0f0f0 solid 2px;
@@ -28,7 +35,7 @@ code {
   animation: alternate;
 }
 .button-out-main:hover {
-  width: 200px;
+  width: 250px;
   height: 40px;
   background: #227880;
   color: #fff;
