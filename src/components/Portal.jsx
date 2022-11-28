@@ -16,7 +16,7 @@ const ServicePortal = ({ user = ' ' }) => {
           </Button>
         </Link>
       </Stack>
-      <Stack className="p-1 p-md-4 d-flex shadow rounded flex-row justify-content-between">
+      <Stack className="p-2 p-md-4 d-flex shadow rounded flex-row justify-content-between">
         <PortalButton
           color={'#3BACB6'}
           value={2}
@@ -35,7 +35,7 @@ const ServicePortal = ({ user = ' ' }) => {
         <PortalButton
           color={'#000000'}
           value={99}
-          icon={'/icons/carbon.svg'}
+          icon={'/icons/cloud-gray.svg'}
           name={'Carbon'}
           path={'#'}
         />

@@ -8,7 +8,7 @@ const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
   return (
     <Card
       style={{
-        width: '20rem',
+        width: '18rem',
         border: 'none',
       }}>
       <Link to={`/home/${id}`} className="text-decoration-none">

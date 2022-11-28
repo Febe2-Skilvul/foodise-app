@@ -11,7 +11,7 @@ const Appbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('ActiveUser');
-    setIsLogin(false)
+    setIsLogin(false);
   };
   return (
     <Navbar
@@ -47,8 +47,8 @@ const Appbar = () => {
                 alt="favorite"
               />
             </Link>
-            <Link to={'#'}>
-              <Icon image="/icons/bell-solid.svg" alt="notif" />
+            <Link to={'/recipe'}>
+              <Icon image="/icons/book-recipe.svg" alt="recipe" />
             </Link>
           </div>
           <Dropdown>
@@ -56,13 +56,15 @@ const Appbar = () => {
               id="dropdown-button-dark-example1"
               variant="light"
               className="rounded-pill border border-gray text-success avatar-menu">
-              
-                {isLogin ? 
-                (<Icon image="/icons/avatar_the_legend_of_ang.svg" alt="avatar" />)
-                : 
-                (<Icon image="/icons/user-solid.svg" alt="avatar" />) 
-                }
-                <Icon image="/icons/bars-solid.svg" alt="menu" />
+              {isLogin ? (
+                <Icon
+                  image="/icons/avatar_the_legend_of_ang.svg"
+                  alt="avatar"
+                />
+              ) : (
+                <Icon image="/icons/user-solid.svg" alt="avatar" />
+              )}
+              <Icon image="/icons/bars-solid.svg" alt="menu" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
