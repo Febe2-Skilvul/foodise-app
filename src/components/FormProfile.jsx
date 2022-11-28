@@ -10,10 +10,10 @@ function FormProfile() {
   //   console.log(dataProfile);
   // };
   return (
-    <div className="shadow rounded mx-5">
+    <div className="shadow rounded" style={{"margin":"2em"}}>
       {/* <Form onSubmit={(e) => handleProfile(e)}> */}
         <Form className="p-5">
-        <Stack gap={3} className="mx-auto">
+        <Stack gap={3} className="mx-5">
           <Form.Group as={Row} className="" controlId="formPlaintext">
             <Form.Label column lg="3">
               Username
