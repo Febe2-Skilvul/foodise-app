@@ -10,9 +10,9 @@ function FormProfile() {
   //   console.log(dataProfile);
   // };
   return (
-    <div className="shadow rounded mx-5 py-3">
+    <div className="shadow rounded mx-5">
       {/* <Form onSubmit={(e) => handleProfile(e)}> */}
-        <Form>
+        <Form className="p-5">
         <Stack gap={3} className="mx-auto">
           <Form.Group as={Row} className="" controlId="formPlaintext">
             <Form.Label column lg="3">
@@ -38,7 +38,11 @@ function FormProfile() {
               <Form.Control type="password" placeholder="Password" />
             </Col>
           </Form.Group>
-          <Form.Group controlId="duedate">
+          <Form.Group as={Row} className="" controlId="date">
+            <Form.Label column lg="3">
+              Date Birth
+            </Form.Label>
+            <Col lg="9">
               <Form.Control
                 type="date"
                 name="duedate"
@@ -46,6 +50,7 @@ function FormProfile() {
                   // value={date}
                   // onChange={(e) => setDate(e.target.value)}
               />
+            </Col>
             </Form.Group>
           <Form.Group as={Row} className="" controlId="formPlaintext">
             <Form.Label column lg="3">
@@ -55,6 +60,19 @@ function FormProfile() {
               <Form.Control type="text" placeholder="text" />
             </Col>
           </Form.Group>
+          <Form.Group as={Row} className="">
+          <Form.Label column lg="3">
+              Gender
+            </Form.Label>
+            <Col lg="9">
+        <Form.Select aria-label="Gender">
+          <option>Your Gender</option>
+          <option value="male">Pria</option>
+          <option value="female">Wanita</option>
+        </Form.Select>
+              
+            </Col>
+      </Form.Group>
           <Form.Group as={Row} className="" controlId="formPlaintext">
             <Form.Label column lg="3">
               height
@@ -89,7 +107,7 @@ function FormProfile() {
           </Form.Group>
         </Stack>
         
-      <Stack gap={2} className="col-md-3 mx-auto">
+      <Stack gap={2} className="col-md-3 mx-auto mt-5">
         <Button variant="primary" type="submit" >Save changes</Button>
         <Button variant="outline-secondary">Cancel</Button>
       </Stack>
