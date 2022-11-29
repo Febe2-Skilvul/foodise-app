@@ -7,14 +7,14 @@ import CardFood from './CardFood';
 
 const ListFoods = () => {
   const { query, category } = useContext(filterCtx);
-  const foods = useSelector((state) => state.list);
+  const data = useSelector((state) => state.list);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchFoods({ query, category }));
   }, [query, category]);
 
-  console.log(foods);
+  console.log(data);
   return (
     <>
       <Stack
@@ -22,17 +22,15 @@ const ListFoods = () => {
         style={{
           marginTop: '50px',
         }}>
-        {foods.foods.map((food, i) => {
-          const calori = food.nutrition.nutrients[0].amount;
-          const carbon = food.nutrition.nutrients[1].amount;
+        {data.foods.map((food, i) => {
           return (
             <CardFood
               key={i}
-              name={food.title}
-              id={food.id}
+              name={food.name}
+              id={food._id}
               img={food.image}
-              calori={calori}
-              carbon={carbon}
+              calori={food.cal}
+              carbon={food.carb}
             />
           );
         })}
