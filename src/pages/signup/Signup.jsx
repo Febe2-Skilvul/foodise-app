@@ -6,7 +6,7 @@ import FormSignup from '../../components/FormSignup';
 const Signup = () => {
   return (
     <Row
-      className="justify-content-md-center flex-column-reverse flex-md-row"
+      className="justify-content-md-center "
       style={{
         marginTop: '100px',
       }}>
@@ -20,8 +20,8 @@ const Signup = () => {
           <div>
             <img
               src="/images/thum1.png"
-              width={400}
-              height={400}
+              width={350}
+              height={350}
               alt=""
             />
           </div>

@@ -4,11 +4,17 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { loginCtx } from '../app/context/LoginContext';
 import API from '../service/api';
-import { login } from '../service/auth';
+import {
+  login,
+  postUserRegister,
+  setLoginUser,
+} from '../service/auth';
+import ButtonLoad from './atoms/ButtonLoad';
 
 const FormLogin = () => {
   const [dataLogin, setDataLogin] = useState();
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { setIsLogin, setUser, setShow } = useContext(loginCtx);
 
   const navigate = useNavigate();
@@ -24,32 +30,19 @@ const FormLogin = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    axios.post('https://o76ho3.deta.dev/auth/signin', {
-      email: dataLogin.email,
-      password: dataLogin.password,
-    });
-
-    // .then((res) => {
-    //   if (res.status === 200) {
-    //     setIsLogin(true);
-    //     setUser(
-    //       localStorage.setItem(
-    //         'ActiveUser',
-    //         JSON.stringify(res?.data?.token)
-    //       )
-    //     );
-    //     setShow(false);
-    //     navigate('/home');
-    //   } else {
-    //     console.log('error');
-    //     setIsLogin(false);
-    //     setUser('');
-    //   }
-    // })
-    // .catch((error) => {
-    //   console.log('ERROR Post', error);
-    //   setOpen(true);
-    // });
+    setLoading(true);
+    const result = await setLoginUser(dataLogin).finally(() =>
+      setLoading(false)
+    );
+    console.log(result);
+    if (result.status < 300) {
+      setIsLogin(true);
+      setUser(result.data);
+      postUserRegister(result.data);
+      setShow(false);
+      return navigate('/home');
+    }
+    return setOpen(true);
   };
   return (
     <Form onSubmit={(e) => handleLogin(e)}>
@@ -80,12 +73,13 @@ const FormLogin = () => {
           placeholder="kata sandi"
         />
       </Form.Group>
-      <Button
-        type="submit"
-        size="lg"
-        className="w-100 button button-main">
-        Login
-      </Button>
+      {loading ? (
+        <ButtonLoad />
+      ) : (
+        <Button type="submit" className="w-100 button button-main">
+          Login
+        </Button>
+      )}
     </Form>
   );
 };

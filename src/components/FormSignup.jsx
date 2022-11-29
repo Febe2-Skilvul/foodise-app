@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { postSignupUser } from '../service/auth';
+import ButtonLoad from './atoms/ButtonLoad';
 import { TextOne } from './atoms/Fonts';
 import Loading from './atoms/Loading';
 import SignupSuccess from './atoms/SignupSuccess';
@@ -56,7 +57,6 @@ const FormSignup = () => {
   };
   return (
     <>
-      {loading ? <Loading /> : null}
       {error ? (
         <Alert
           variant="danger"
@@ -137,12 +137,15 @@ const FormSignup = () => {
           <option value={1.725}> 5-6 kali </option>
           <option value={1.9}> 2 kali dalam sehari</option>
         </Form.Select>
-        <Button
-          type="submit"
-          size="lg"
-          className="w-100 mt-3 button button-main">
-          Daftar
-        </Button>
+        {loading ? (
+          <ButtonLoad />
+        ) : (
+          <Button
+            type="submit"
+            className="w-100 mt-3 button button-main">
+            Daftar
+          </Button>
+        )}
       </Form>
     </>
   );
