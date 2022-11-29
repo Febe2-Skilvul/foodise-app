@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 const res = JSON.parse(localStorage.getItem('ActiveUser'));
 const initialState = {
   showLogin: false,
-  isLogin: res === null ? false : true,
+  isLogin: true,
   user: res,
 };
 

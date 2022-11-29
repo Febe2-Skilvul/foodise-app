@@ -1,8 +1,10 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { loginCtx } from '../app/context/LoginContext';
 import API from '../service/api';
+import { login } from '../service/auth';
 
 const FormLogin = () => {
   const [dataLogin, setDataLogin] = useState();
@@ -20,31 +22,34 @@ const FormLogin = () => {
       return setDataLogin((prev) => ({ ...prev, email: value }));
     }
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    API.post(`/login`,{email:dataLogin.email, password: dataLogin.password})
-    .then((res) => {
-      if(res.status === 200) {
-        setIsLogin(true)
-        setUser(localStorage.setItem('ActiveUser', JSON.stringify(res?.data?.token)))
-        setShow(false)
-        // if(res.data.status === "admin"){
-        //   navigate('/adminhome')
+    axios.post('https://o76ho3.deta.dev/auth/signin', {
+      email: dataLogin.email,
+      password: dataLogin.password,
+    });
 
-        // } else {
-        //   navigate('/home')
-        // }
-          navigate('/home')
-      } else{
-        console.log("error");
-        setIsLogin(false)
-        setUser('')
-      }
-    })
-    .catch((error) => {
-      console.log("ERROR Post", error);
-      setOpen(true)
-    })
+    // .then((res) => {
+    //   if (res.status === 200) {
+    //     setIsLogin(true);
+    //     setUser(
+    //       localStorage.setItem(
+    //         'ActiveUser',
+    //         JSON.stringify(res?.data?.token)
+    //       )
+    //     );
+    //     setShow(false);
+    //     navigate('/home');
+    //   } else {
+    //     console.log('error');
+    //     setIsLogin(false);
+    //     setUser('');
+    //   }
+    // })
+    // .catch((error) => {
+    //   console.log('ERROR Post', error);
+    //   setOpen(true);
+    // });
   };
   return (
     <Form onSubmit={(e) => handleLogin(e)}>

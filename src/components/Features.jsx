@@ -13,6 +13,7 @@ function Features() {
           logo={card.logo}
           desc={card.desc}
           key={i}
+          link={card.link}
         />
       ))}
     </Stack>

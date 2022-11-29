@@ -96,6 +96,19 @@ code {
 .hero-img {
   width: 800px;
 }
+.btn-search {
+  border-radius: 50%;
+  width: 40px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s;
+}
+.btn-search:hover {
+  border-radius: 2px;
+  background: #19555b;
+}
 .cardHero {
   margin-right: -200px;
   height: 300px;
