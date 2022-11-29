@@ -7,31 +7,31 @@ const initialState = {
   error: '',
 };
 
-export const fetchFoods = createAsyncThunk(
-  'data/fetchFoods',
-  async ({ query }) => {
-    console.log(query);
+export const filterFoods = createAsyncThunk(
+  'data/filterFoods',
+  async ({ category }) => {
+    console.log(category);
     return axios
-      .get(`https://o76ho3.deta.dev/foods/search?name=${query}`)
+      .get(`https://o76ho3.deta.dev/foods/category/${category}`)
       .then((res) => {
         return res.data;
       });
   }
 );
 
-const foodSlice = createSlice({
+const filterSlice = createSlice({
   name: 'food',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchFoods.pending, (state) => {
+    builder.addCase(filterFoods.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchFoods.fulfilled, (state, action) => {
+    builder.addCase(filterFoods.fulfilled, (state, action) => {
       state.loading = false;
       state.foods = action.payload;
       state.error = '';
     });
-    builder.addCase(fetchFoods.rejected, (state, action) => {
+    builder.addCase(filterFoods.rejected, (state, action) => {
       state.loading = false;
       state.foods = [];
       state.error = action.error.message;
@@ -39,4 +39,4 @@ const foodSlice = createSlice({
   },
 });
 
-export default foodSlice.reducer;
+export default filterSlice.reducer;

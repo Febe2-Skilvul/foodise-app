@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import CategoryBar from '../../components/CategoryBar';
+import FoodsCategory from '../../components/FoodsCategory';
 
 import ListFoods from '../../components/ListFoods';
 
 import ServicePortal from '../../components/Portal';
 
-const Home = () => {
+const Category = () => {
   const user = 'sherlin';
 
   return (
@@ -14,10 +15,10 @@ const Home = () => {
       <Col className="mt-5">
         <ServicePortal user={user !== null ? user : ''} />
         <CategoryBar />
-        <ListFoods />
+        <FoodsCategory />
       </Col>
     </Row>
   );
 };
 
-export default Home;
+export default Category;

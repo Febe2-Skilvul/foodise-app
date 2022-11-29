@@ -2,16 +2,22 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Container, Dropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { filterCtx } from '../app/context/FilterContext';
 import { loginCtx } from '../app/context/LoginContext';
 import Icon from '../components/atoms/Icon';
 import Search from '../components/Search';
 
 const Appbar = () => {
   const { setShow, isLogin, setIsLogin } = useContext(loginCtx);
+  const { setQuery, setCategory } = useContext(filterCtx);
 
   const handleLogout = () => {
     localStorage.removeItem('user-active');
     setIsLogin(false);
+  };
+  const handleHome = () => {
+    setQuery(' ');
+    setCategory(0);
   };
   return (
     <Navbar
@@ -26,7 +32,7 @@ const Appbar = () => {
       expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to={'/home'}>
+          <Link to={'/home'} onClick={() => handleHome()}>
             <img
               src="/images/foodise-logo.png"
               alt=""

@@ -2,7 +2,7 @@ import { Stack } from 'react-bootstrap';
 import { categories } from '../config/category';
 import CategoryItem from './atoms/ItemCategory';
 
-const Category = () => {
+const CategoryBar = () => {
   return (
     <Stack className="d-flex flex-row align-items-center justify-content-evenly category">
       {categories.map((item, i) => {
@@ -12,6 +12,7 @@ const Category = () => {
             icon={item.icon}
             name={item.name}
             iconB={item.iconB}
+            value={item.value}
           />
         );
       })}
@@ -19,4 +20,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryBar;

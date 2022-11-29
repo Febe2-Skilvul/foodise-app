@@ -11,7 +11,10 @@ const Search = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     navigate('/home');
-    return setQuery(search);
+    setQuery(search);
+    setTimeout(() => {
+      setSearch((prev) => (prev = ' '));
+    }, [5000]);
   };
   return (
     <Form
@@ -20,6 +23,7 @@ const Search = () => {
       <Form.Control
         type="search"
         placeholder="Search"
+        value={search}
         className="me-2 rounded-pill"
         aria-label="Search"
         onChange={(e) => setSearch(e.target.value)}

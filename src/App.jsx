@@ -9,6 +9,7 @@ import { loginCtx } from './app/context/LoginContext';
 import PorsiCtxProvider from './app/context/PorsiContext';
 import TrackCtxProvider from './app/context/TrackContext';
 import Layout from './layout/Layout';
+import Category from './pages/category/Category';
 import Detail from './pages/detail/Detail';
 import Favorites from './pages/Favorites/Favorites';
 
@@ -40,6 +41,14 @@ const App = () => {
                 <RequireAuth>
                   {' '}
                   <Home />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/category"
+              element={
+                <RequireAuth>
+                  <Category />
                 </RequireAuth>
               }
             />

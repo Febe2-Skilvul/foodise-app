@@ -1,14 +1,18 @@
+import { useContext } from 'react';
 import { Button, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { loginCtx } from '../app/context/LoginContext';
 import { TextOne } from './atoms/Fonts';
 import Icon from './atoms/Icon';
 import PortalButton from './atoms/PortalButton';
 
-const ServicePortal = ({ user = ' ' }) => {
+const ServicePortal = () => {
+  const { user } = useContext(loginCtx);
+
   return (
     <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
       <Stack className="d-flex flex-row justify-content-between">
-        <TextOne colored={user}>Hii</TextOne>
+        <TextOne colored={user.username}>Hii</TextOne>
         <Link to={'/track'} className="text-decoration-none">
           <Button className="button-pill bg-white shadow-sm">
             <Icon image={'/icons/tracking.svg'} />
@@ -47,8 +51,6 @@ const ServicePortal = ({ user = ' ' }) => {
           path={'/favorite'}
         />
       </Stack>
-
-      {/* <CategoryBar /> */}
     </Stack>
   );
 };
