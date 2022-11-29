@@ -9,13 +9,17 @@ import Search from '../components/Search';
 
 const Appbar = () => {
   const { setShow, isLogin, setIsLogin } = useContext(loginCtx);
-  const { setQuery } = useContext(filterCtx);
+  const { setQuery, setCategory } = useContext(filterCtx);
 
   const handleLogout = () => {
     localStorage.removeItem('user-active');
     setIsLogin(false);
+    setCategory(' ');
   };
-
+  const handleHome = () => {
+    setQuery(' ');
+    setCategory(0);
+  };
   return (
     <Navbar
       style={{
@@ -29,7 +33,7 @@ const Appbar = () => {
       expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to={'/home'} onClick={() => setQuery(' ')}>
+          <Link to={'/home'} onClick={() => handleHome()}>
             <img
               src="/images/foodise-logo.png"
               alt=""

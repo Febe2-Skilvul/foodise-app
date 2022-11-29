@@ -2,20 +2,21 @@ import { useContext, useEffect, useState } from 'react';
 import { Spinner, Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCtx } from '../app/context/FilterContext';
+import { filterFoods } from '../app/redux/foods/FilterSlice';
 import { fetchFoods } from '../app/redux/foods/FoodSlice';
 import Loading from './atoms/Loading';
 import Notfound from './atoms/NotFound';
 import CardFood from './CardFood';
 
-const ListFoods = () => {
-  const { query } = useContext(filterCtx);
-  const data = useSelector((state) => state.list);
+const FoodsCategory = () => {
+  const { category } = useContext(filterCtx);
+  const data = useSelector((state) => state.filter);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchFoods({ query }));
-  }, [query]);
+    dispatch(filterFoods({ category }));
+  }, [category]);
 
   console.log(data.foods);
   return (
@@ -47,4 +48,4 @@ const ListFoods = () => {
   );
 };
 
-export default ListFoods;
+export default FoodsCategory;

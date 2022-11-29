@@ -12,7 +12,13 @@ const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
         border: 'none',
       }}>
       <Link to={`/home/${id}`} className="text-decoration-none">
-        <Card.Img className="rounded" variant="top" src={img} />
+        <Card.Img
+          className="rounded"
+          variant="top"
+          src={img}
+          width={400}
+          height={200}
+        />
         <Card.Body>
           <div className="d-flex flex-row gap-3 justify-content-between align-items-center">
             <div
