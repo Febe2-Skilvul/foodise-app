@@ -11,7 +11,7 @@ const TrackPortal = () => {
 
   let dateFormat = {
     hari: startDate.getDate(),
-    bulan: startDate.getMonth(),
+    bulan: startDate.getMonth() + 1,
     tahun: startDate.getFullYear(),
   };
 

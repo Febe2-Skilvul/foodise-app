@@ -14,7 +14,6 @@ const Appbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('user-active');
     setIsLogin(false);
-    setCategory(' ');
   };
   const handleHome = () => {
     setQuery(' ');
