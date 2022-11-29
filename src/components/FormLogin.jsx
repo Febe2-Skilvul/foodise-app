@@ -34,7 +34,7 @@ const FormLogin = () => {
     const result = await setLoginUser(dataLogin).finally(() =>
       setLoading(false)
     );
-    console.log(result);
+
     if (result.status < 300) {
       setIsLogin(true);
       setUser(result.data);

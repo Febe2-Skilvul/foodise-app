@@ -10,7 +10,7 @@ const Appbar = () => {
   const { setShow, isLogin, setIsLogin } = useContext(loginCtx);
 
   const handleLogout = () => {
-    localStorage.removeItem('ActiveUser');
+    localStorage.removeItem('user-active');
     setIsLogin(false);
   };
   return (
@@ -89,15 +89,18 @@ const Appbar = () => {
               {isLogin ? (
                 <Dropdown.Item
                   link="#"
+                  style={{
+                    color: '#FF5652',
+                  }}
                   onClick={(e) => handleLogout()}>
-                  Log out
+                  Logout
                 </Dropdown.Item>
               ) : (
                 <>
                   <Dropdown.Item
                     link="#"
                     onClick={() => setShow(true)}>
-                    Log in
+                    Login
                   </Dropdown.Item>
                   <Link
                     to={'/signup'}
@@ -106,7 +109,7 @@ const Appbar = () => {
                       paddingLeft: '15px',
                       fontWeight: 'bold',
                     }}>
-                    Sign up
+                    Signup
                   </Link>
                 </>
               )}

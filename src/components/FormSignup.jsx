@@ -49,7 +49,6 @@ const FormSignup = () => {
     const result = await postSignupUser(dataSignup).finally(() =>
       setLoading(false)
     );
-    console.log(result);
     if (result.status > 300) {
       return setError(true);
     }
