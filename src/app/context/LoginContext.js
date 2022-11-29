@@ -1,12 +1,10 @@
 import { createContext, useState } from 'react';
-const res = JSON.parse(localStorage.getItem('ActiveUser'));
+const res = JSON.parse(localStorage.getItem('user-active'));
 const initialState = {
   showLogin: false,
   isLogin: res === null ? false : true,
   user: res,
 };
-
-console.log('RES ', initialState.user);
 
 export const loginCtx = createContext(initialState);
 

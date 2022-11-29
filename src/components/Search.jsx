@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { filterCtx } from '../app/context/FilterContext';
 import Icon from './atoms/Icon';
 
 const Search = () => {
   const { setQuery } = useContext(filterCtx);
   const [search, setSearch] = useState('');
-
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
-
+    navigate('/home');
     return setQuery(search);
   };
   return (
@@ -29,7 +30,7 @@ const Search = () => {
           backgroundColor: '#3BACB6',
           border: 'none',
         }}
-        className="rounded-pill">
+        className="btn-search">
         <Icon image="/icons/search-solid.svg" alt="search" />
       </Button>
     </Form>

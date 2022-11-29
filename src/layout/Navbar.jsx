@@ -10,7 +10,7 @@ const Appbar = () => {
   const { setShow, isLogin, setIsLogin } = useContext(loginCtx);
 
   const handleLogout = () => {
-    localStorage.removeItem('ActiveUser');
+    localStorage.removeItem('user-active');
     setIsLogin(false);
   };
   return (
@@ -41,7 +41,7 @@ const Appbar = () => {
 
         <div className="container-nav">
           <div className="box-nav d-none d-md-flex">
-            <Link to={'/booked'}>
+            <Link to={'/home'}>
               <Icon
                 image="/icons/bowl-food-solid.svg"
                 alt="favorite"
@@ -54,43 +54,53 @@ const Appbar = () => {
           <Dropdown>
             <Dropdown.Toggle
               id="dropdown-button-dark-example1"
-              variant="light"
+              style={{
+                backgroundColor: '#fff',
+              }}
               className="rounded-pill border border-gray text-success avatar-menu">
-              {isLogin ? (
-                <Icon
-                  image="/icons/avatar_the_legend_of_ang.svg"
-                  alt="avatar"
-                />
-              ) : (
-                <Icon image="/icons/user-solid.svg" alt="avatar" />
-              )}
+              <Icon image="/icons/user-solid.svg" alt="avatar" />
+
               <Icon image="/icons/bars-solid.svg" alt="menu" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               <div style={{ paddingLeft: '15px' }}>
-                <Link to="/home" className="text-decoration-none">
+                <Link
+                  to="/home"
+                  className="text-decoration-none text-dark">
                   Foods
                 </Link>
               </div>
               <div style={{ paddingLeft: '15px' }}>
-                <Link to="/booked" className="text-decoration-none">
+                <Link
+                  to="/booked"
+                  className="text-decoration-none text-dark">
                   Favorites
+                </Link>
+              </div>
+              <div style={{ paddingLeft: '15px' }}>
+                <Link
+                  to="/recipe"
+                  className="text-decoration-none text-dark">
+                  Recipes
                 </Link>
               </div>
               <Dropdown.Divider />
               {isLogin ? (
                 <Dropdown.Item
                   link="#"
+                  style={{
+                    color: '#FF5652',
+                  }}
                   onClick={(e) => handleLogout()}>
-                  Log out
+                  Logout
                 </Dropdown.Item>
               ) : (
                 <>
                   <Dropdown.Item
                     link="#"
                     onClick={() => setShow(true)}>
-                    Log in
+                    Login
                   </Dropdown.Item>
                   <Link
                     to={'/signup'}
@@ -99,7 +109,7 @@ const Appbar = () => {
                       paddingLeft: '15px',
                       fontWeight: 'bold',
                     }}>
-                    Sign up
+                    Signup
                   </Link>
                 </>
               )}
