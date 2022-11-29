@@ -9,10 +9,13 @@ const initialState = {
 
 export const fetchFoods = createAsyncThunk(
   'data/fetchFoods',
-  async ({ query, category }) => {
-    return axios.get(`https://o76ho3.deta.dev/foods`).then((res) => {
-      return res.data;
-    });
+  async ({ query }) => {
+    console.log(query);
+    return axios
+      .get(`https://o76ho3.deta.dev/foods/search?name=${query}`)
+      .then((res) => {
+        return res.data;
+      });
   }
 );
 

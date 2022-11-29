@@ -2,17 +2,20 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Container, Dropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { filterCtx } from '../app/context/FilterContext';
 import { loginCtx } from '../app/context/LoginContext';
 import Icon from '../components/atoms/Icon';
 import Search from '../components/Search';
 
 const Appbar = () => {
   const { setShow, isLogin, setIsLogin } = useContext(loginCtx);
+  const { setQuery } = useContext(filterCtx);
 
   const handleLogout = () => {
     localStorage.removeItem('user-active');
     setIsLogin(false);
   };
+
   return (
     <Navbar
       style={{
@@ -26,7 +29,7 @@ const Appbar = () => {
       expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to={'/home'}>
+          <Link to={'/home'} onClick={() => setQuery(' ')}>
             <img
               src="/images/foodise-logo.png"
               alt=""
