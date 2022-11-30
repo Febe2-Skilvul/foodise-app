@@ -22,23 +22,15 @@ import Loading from '../../components/atoms/Loading';
 import HeroDetail from './HeroDetail';
 import NutsDetail from './NutsDetail';
 import MainDetail from './MainDetail';
+import Notfound from '../../components/atoms/NotFound';
 
 const Detail = () => {
-  const [open, setOpen] = useState(false);
-  const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
   const [food, setFood] = useState([]);
-  const [calori, setCalori] = useState(100);
-  const [carbon, setCarbon] = useState(67);
+
   const [isLoading, setIsLoading] = useState(true);
-  const initial = {
-    carbon: 56,
-    calori: 44,
-  };
+
   const param = useParams();
-  const handleCount = () => {
-    setCalori(() => initial.calori * porsi);
-    setCarbon(() => initial.carbon * porsi);
-  };
+
   const getDetailFoodAPI = useCallback(async () => {
     setIsLoading(true);
     await getDetailFood(param.id)
@@ -49,17 +41,16 @@ const Detail = () => {
       .finally(() => setIsLoading(false));
   }, [getDetailFood]);
 
-  const handlePostFood = () => {};
   useEffect(() => {
-    handleCount();
     getDetailFoodAPI();
   }, []);
 
+  console.log(food);
   return (
     <>
       {isLoading && <Loading />}
       <ServicePortal />
-      {!isLoading ? (
+      {!isLoading && food ? (
         <Row
           style={{
             marginTop: '100px',
@@ -88,9 +79,8 @@ const Detail = () => {
           </div>
         </Row>
       ) : (
-        <div>food kosong</div>
+        !isLoading && <Notfound />
       )}
-      <p>detail</p>
     </>
   );
 };

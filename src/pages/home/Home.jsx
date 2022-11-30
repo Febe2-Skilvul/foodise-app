@@ -9,7 +9,6 @@ import ListFoods from '../../components/ListFoods';
 import ServicePortal from '../../components/Portal';
 
 const Home = () => {
-  const user = 'sherlin';
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(trackingDay());

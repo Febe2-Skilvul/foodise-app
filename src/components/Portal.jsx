@@ -9,12 +9,14 @@ import { TextOne } from './atoms/Fonts';
 import Icon from './atoms/Icon';
 import Loading from './atoms/Loading';
 import PortalButton from './atoms/PortalButton';
+import PortalContainer from './atoms/PortalContainer';
 import TrackNull from './atoms/TrackNull';
 
 const ServicePortal = () => {
   const { user } = useContext(loginCtx);
   const res = useSelector((state) => state.track);
 
+  console.log(res);
   return (
     <>
       <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
@@ -27,38 +29,15 @@ const ServicePortal = () => {
             </Button>
           </Link>
         </Stack>
-
-        <Stack className="p-2 p-md-4 d-flex shadow rounded flex-row justify-content-between">
-          <PortalButton
-            color={'#3BACB6'}
-            value={0}
-            icon={'/icons/food-bucket.svg'}
-            name={'Food Today'}
-            path={'#'}
+        {res.track ? (
+          <PortalContainer
+            foodToday={res.track.data.tracking.food.length}
+            calori={res.track.data.totCal}
+            carbon={res.track.data.totCarbon}
           />
-          <PortalButton
-            color={'#FF5652'}
-            value={0}
-            icon={'/icons/calory.svg'}
-            name={'Kalori'}
-            path={'#'}
-          />
-
-          <PortalButton
-            color={'#008000'}
-            value={0}
-            icon={'/icons/cloud-gray.svg'}
-            name={'Carbon'}
-            path={'#'}
-          />
-          <PortalButton
-            color={'#000000'}
-            value={0}
-            icon={'/icons/spoon.svg'}
-            name={'Favorite'}
-            path={'/favorite'}
-          />
-        </Stack>
+        ) : (
+          <PortalContainer />
+        )}
       </Stack>
     </>
   );
