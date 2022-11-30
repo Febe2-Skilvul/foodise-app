@@ -1,9 +1,27 @@
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { Col, Row, Stack } from 'react-bootstrap';
+import { loginCtx } from '../../app/context/LoginContext';
 import CardFood from '../../components/CardFood';
 import ServicePortal from '../../components/Portal';
 import { fakeData } from '../../config/foods';
+import { getFavoriteFoods } from '../../service/food';
 
 const Favorites = () => {
+  const [favorites, setFavorites] = useState();
+  const { user } = useContext(loginCtx);
+
+  // const getFavoriteFoodsList = useCallback(async () => {
+  //   const data = await getFavoriteFoods(user.token);
+  //   setFavorites(data);
+  // }, [getFavoriteFoods]);
+
+  async function getFavorite() {
+    const data = await getFavoriteFoods(user.token);
+    console.log(data);
+  }
+  useEffect(() => {
+    getFavorite();
+  }, []);
   return (
     <Row className="justify-content-md-center">
       <Col className="mt-5">

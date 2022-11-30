@@ -1,3 +1,4 @@
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Notfound = () => {
@@ -11,9 +12,8 @@ const Notfound = () => {
           height="350"
           alt=""
         />
-        <h4 className="mt-5 text-secondary">
-          Makanan Tidak ditemukan
-        </h4>
+        <h5 className="mt-5 text-gray">Makanan Tidak ditemukan</h5>
+        <Button className="button-main">home</Button>
       </div>
     </>
   );

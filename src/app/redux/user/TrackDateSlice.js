@@ -8,11 +8,12 @@ const initialState = {
   error: '',
 };
 
-export const trackingDay = createAsyncThunk(
-  'data/trackingDay',
-  async (token) => {
+export const trackDate = createAsyncThunk(
+  'data/trackDate',
+  async ({ date, token }) => {
+    console.log('tok', token);
     return axios
-      .get(`https://foodise-back-end.deta.dev/tracking/today`, {
+      .get(`https://foodise-back-end.deta.dev/tracking/${date}`, {
         headers: {
           Authorization: `bearer ${token}`,
         },
@@ -23,19 +24,19 @@ export const trackingDay = createAsyncThunk(
   }
 );
 
-const trackSlice = createSlice({
+const trackDateSlice = createSlice({
   name: 'track',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(trackingDay.pending, (state) => {
+    builder.addCase(trackDate.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(trackingDay.fulfilled, (state, action) => {
+    builder.addCase(trackDate.fulfilled, (state, action) => {
       state.loading = false;
       state.track = action.payload;
       state.error = '';
     });
-    builder.addCase(trackingDay.rejected, (state, action) => {
+    builder.addCase(trackDate.rejected, (state, action) => {
       state.loading = false;
       state.track = [];
       state.error = action.error.message;
@@ -43,4 +44,4 @@ const trackSlice = createSlice({
   },
 });
 
-export default trackSlice.reducer;
+export default trackDateSlice.reducer;

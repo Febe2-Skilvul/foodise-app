@@ -11,12 +11,7 @@ const Login = () => {
     setShow(false);
   };
   return (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      style={{
-        maxWidth: '400px',
-      }}>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>
           Sign{' '}

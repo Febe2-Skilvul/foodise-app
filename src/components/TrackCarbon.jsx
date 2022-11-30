@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Stack } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { loginCtx } from '../app/context/LoginContext';
 import CircleProgress from './atoms/CircleProgress';
 
 const TrackCarbon = () => {
+  const food = useSelector((state) => state.trackDate.track.data);
+
+  console.log(food);
   return (
     <Stack
       className=" p-3 w-100 bg-body rounded d-flex flex-row flex-wrap justify-content-center align-items-center gap-3"
@@ -12,8 +17,8 @@ const TrackCarbon = () => {
       <CircleProgress
         color={'#455A64'}
         name="Carbon"
-        value={100}
-        percent={69}
+        value={food.totCarbon}
+        percent={(food.totCarbon / 2) * 100}
         unit="kgc02"
       />
       <div className="carbon-msg">
@@ -29,7 +34,7 @@ const TrackCarbon = () => {
               fontWeight: '600',
               color: '#FF5652',
             }}>
-            450 kgc02
+            {food.totCarbon} kgc02
           </span>{' '}
           hari ini
         </p>

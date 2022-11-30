@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import api from '../../../service/api';
 
 const initialState = {
   loading: false,
@@ -9,10 +10,16 @@ const initialState = {
 
 export const fetchFoods = createAsyncThunk(
   'data/fetchFoods',
-  async ({ query }) => {
-    console.log(query);
+  async ({ query, token }) => {
     return axios
-      .get(`https://o76ho3.deta.dev/foods/search?name=${query}`)
+      .get(
+        `https://foodise-back-end.deta.dev/foods/search?name=${query}`,
+        {
+          headers: {
+            Authorization: `bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         return res.data;
       });
