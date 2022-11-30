@@ -1,23 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { Accordion, Button, Modal, Stack } from 'react-bootstrap';
 import CircleProgress from './atoms/CircleProgress';
 import { TextOne } from './atoms/Fonts';
 import Icon from './atoms/Icon';
+import { loginCtx } from '../app/context/LoginContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { trackingDay } from '../app/redux/user/TrackingSlice';
+import { trackDate } from '../app/redux/user/TrackDateSlice';
 
 const TrackPortal = () => {
+  const { user } = useContext(loginCtx);
+  const res = useSelector((state) => state.trackDate);
   const [show, setShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-
+  const [dataToday, setDataToday] = useState({
+    food: '',
+    calori: '',
+    carbon: '',
+  });
+  const dispatch = useDispatch();
   let dateFormat = {
     hari: startDate.getDate(),
     bulan: startDate.getMonth() + 1,
     tahun: startDate.getFullYear(),
   };
-
-  // useEffect(() => {
-  //   console.log(dateFormat);
-  // }, [startDate]);
+  // const todayFood = {
+  //   food:
+  //     res.track?.data || !res === ''
+  //       ? 0
+  //       : res.track.data.tracking.food.length,
+  //   calori:
+  //     res.track?.data === '' || !res
+  //       ? 0
+  //       : res.track.data.tracking.food.totCal,
+  //   carbon:
+  //     res.track?.data === '' || !res
+  //       ? 0
+  //       : res.track.data.tracking.food.totCarbon,
+  // };
+  console.log(startDate);
+  useEffect(() => {
+    dispatch(trackDate(startDate));
+  }, [startDate]);
+  console.log('data track =>', res);
+  console.log('data track =>', res.track?.data === '');
   return (
     <Stack
       className=" p-3 w-100 bg-body rounded d-flex flex-column justify-content-center align-items-center gap-5 "
@@ -60,28 +87,28 @@ const TrackPortal = () => {
           </Modal>
         </div>
       </Stack>
-      <Stack className="d-md-flex shadow rounded flex-row  justify-content-center w-100 box-circle-progress d-none ">
+      {/* <Stack className="d-md-flex shadow rounded flex-row  justify-content-center w-100 box-circle-progress d-none ">
         <CircleProgress
           color={'#227880'}
           name="Foods"
-          value={1}
-          percent={39}
+          value={todayFood.food}
+          percent={(todayFood.food / 4) * 100}
         />
         <CircleProgress
           color={'#455A64'}
           name="Carbon"
-          value={100}
-          percent={69}
+          value={todayFood.carbon}
+          percent={(todayFood.carbon / user.carboNeeded) * 100}
           unit="kgc02"
         />
         <CircleProgress
           color={'#FF5652'}
           name="Calori"
-          value={1090}
-          percent={79}
+          value={todayFood.calori}
+          percent={(todayFood.calori / user.carboNeeded) * 100}
           unit="Kkal"
         />
-      </Stack>
+      </Stack> */}
       <Stack className="d-flex d-md-none shadow rounded flex-row  justify-content-center">
         <CircleProgress
           color={'#455A64'}

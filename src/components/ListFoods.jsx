@@ -17,7 +17,6 @@ const ListFoods = () => {
     dispatch(fetchFoods({ query }));
   }, [query]);
 
-  console.log(data.foods);
   return (
     <>
       {data.loading && <Loading />}

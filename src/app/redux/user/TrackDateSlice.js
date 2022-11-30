@@ -8,28 +8,28 @@ const initialState = {
   error: '',
 };
 
-export const trackingDay = createAsyncThunk(
-  'data/trackingDay',
+export const trackDate = createAsyncThunk(
+  'data/trackDate',
   async (date) => {
-    return api.get(`/tracking/today`).then((res) => {
+    return api.get(`/tracking/${date}`).then((res) => {
       return res;
     });
   }
 );
 
-const trackSlice = createSlice({
+const trackDateSlice = createSlice({
   name: 'track',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(trackingDay.pending, (state) => {
+    builder.addCase(trackDate.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(trackingDay.fulfilled, (state, action) => {
+    builder.addCase(trackDate.fulfilled, (state, action) => {
       state.loading = false;
       state.track = action.payload;
       state.error = '';
     });
-    builder.addCase(trackingDay.rejected, (state, action) => {
+    builder.addCase(trackDate.rejected, (state, action) => {
       state.loading = false;
       state.track = [];
       state.error = action.error.message;
@@ -37,4 +37,4 @@ const trackSlice = createSlice({
   },
 });
 
-export default trackSlice.reducer;
+export default trackDateSlice.reducer;
