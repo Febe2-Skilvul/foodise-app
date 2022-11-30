@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { filterCtx } from '../app/context/FilterContext';
 import Icon from './atoms/Icon';
 
 const Search = () => {
+  const { setQuery } = useContext(filterCtx);
   const [search, setSearch] = useState('');
-
+  const navigate = useNavigate();
   const handleSearch = (e) => {
-    console.log(search);
+    e.preventDefault();
+    navigate('/home');
+    setQuery(search);
+    setTimeout(() => {
+      setSearch((prev) => (prev = ' '));
+    }, [5000]);
   };
   return (
     <Form
@@ -15,6 +23,7 @@ const Search = () => {
       <Form.Control
         type="search"
         placeholder="Search"
+        value={search}
         className="me-2 rounded-pill"
         aria-label="Search"
         onChange={(e) => setSearch(e.target.value)}
@@ -25,7 +34,7 @@ const Search = () => {
           backgroundColor: '#3BACB6',
           border: 'none',
         }}
-        className="rounded-pill">
+        className="btn-search">
         <Icon image="/icons/search-solid.svg" alt="search" />
       </Button>
     </Form>

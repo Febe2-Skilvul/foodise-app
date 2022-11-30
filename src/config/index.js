@@ -21,21 +21,25 @@ const features = [
     logo: '/icons/food.svg',
     title: 'Food Nutrition',
     desc: 'Get Food Nutritions',
+    link: '/home',
   },
   {
     logo: '/icons/nutri-track.svg',
     title: 'Nutrition Tracking',
     desc: 'Count Daily Foods',
+    link: '/tracking',
   },
   {
     logo: '/icons/carbon-track.svg',
     title: 'Carbon Tracking',
     desc: 'Count Daily Foods Carbon',
+    link: '/tracking',
   },
   {
     logo: '/icons/recipe.svg',
     title: 'Food Recipe',
     desc: 'Get Amazing Recipe',
+    link: '/recipe',
   },
 ];
 

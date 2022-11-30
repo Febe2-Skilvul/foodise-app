@@ -1,5 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: `foodise-gpa-be2.herokuapp.com/api/`
+  baseURL: `https://o76ho3.deta.dev/auth/signin`,
 });
+
