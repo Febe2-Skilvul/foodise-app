@@ -10,3 +10,10 @@ export async function getFavoriteFoods() {
 
   return response;
 }
+export async function getDetailFood(id) {
+  const response = await api
+    .get(`/foods/${id}`)
+    .catch((err) => err.response);
+
+  return response;
+}

@@ -7,3 +7,10 @@ export async function getFavoriteFoods() {
 
   return response;
 }
+export async function setNewFoodTracking(data) {
+  const response = await api.post('/tracking', data).catch((err) => {
+    return err.response;
+  });
+
+  return response;
+}
