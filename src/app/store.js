@@ -11,4 +11,8 @@ export const store = configureStore({
     track: trackReducer,
     trackDate: trackingDateReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

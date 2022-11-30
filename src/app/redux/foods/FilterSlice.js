@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import api from '../../../service/api';
 
 const initialState = {
   loading: false,
@@ -11,11 +12,9 @@ export const filterFoods = createAsyncThunk(
   'data/filterFoods',
   async ({ category }) => {
     console.log(category);
-    return axios
-      .get(`https://o76ho3.deta.dev/foods/category/${category}`)
-      .then((res) => {
-        return res.data;
-      });
+    return api.get(`/foods/category/${category}`).then((res) => {
+      return res.data;
+    });
   }
 );
 

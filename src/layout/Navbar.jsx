@@ -13,6 +13,7 @@ const Appbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('user-active');
+    localStorage.removeItem('jwttoken');
     setIsLogin(false);
   };
   const handleHome = () => {

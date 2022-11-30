@@ -32,12 +32,10 @@ const TrackPortal = () => {
   };
   let dateFix = `${dateFormat.tahun}-${dateFormat.bulan}-${dateFormat.hari}`;
 
-  console.log(dateFix);
-  console.log(user.token);
   useEffect(() => {
-    dispatch(trackDate(dateFix));
+    dispatch(trackDate({ date: dateFix, token: user.token }));
   }, [startDate]);
-  console.log(res);
+
   return (
     <>
       {res.loading && <Loading />}
@@ -96,23 +94,9 @@ const TrackPortal = () => {
                 : res.track.data.tracking.food.length
             }
           />
-        ) : null}
-        <Stack className="d-flex d-md-none shadow rounded flex-row  justify-content-center">
-          <CircleProgress
-            color={'#455A64'}
-            name="Carbon"
-            value={100}
-            percent={69}
-            unit="kgc02"
-          />
-          <CircleProgress
-            color={'#FF5652'}
-            name="Calori"
-            value={1090}
-            percent={79}
-            unit="Kkal"
-          />
-        </Stack>
+        ) : (
+          <BoxPortalProgress />
+        )}
       </Stack>
     </>
   );

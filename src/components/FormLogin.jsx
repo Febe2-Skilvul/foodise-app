@@ -40,6 +40,10 @@ const FormLogin = () => {
       setUser(result.data);
       postUserRegister(result.data);
       setShow(false);
+      localStorage.setItem(
+        'jwttoken',
+        JSON.stringify(result.data.token)
+      );
       return navigate('/home');
     }
     return setOpen(true);

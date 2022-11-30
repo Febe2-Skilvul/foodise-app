@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const TrackNull = () => {
   return (
@@ -13,6 +15,9 @@ const TrackNull = () => {
           border: 'none',
         }}
       />
+      <Link to={'/home'} className="text-decoration-none">
+        <Button className="button-main">Home</Button>
+      </Link>
     </div>
   );
 };

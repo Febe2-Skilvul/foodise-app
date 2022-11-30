@@ -10,10 +10,16 @@ const initialState = {
 
 export const trackingDay = createAsyncThunk(
   'data/trackingDay',
-  async (date) => {
-    return api.get(`/tracking/today`).then((res) => {
-      return res;
-    });
+  async (token) => {
+    return axios
+      .get(`https://foodise-back-end.deta.dev/tracking/today`, {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        return res;
+      });
   }
 );
 

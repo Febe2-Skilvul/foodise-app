@@ -6,7 +6,7 @@ const PortalContainer = ({
   foodToday = 0,
   calori = 0,
   carbon = 0,
-  favorite = 0,
+  calNeed = 0,
 }) => {
   return (
     <Stack className="p-2 p-md-4 d-flex shadow rounded flex-row justify-content-between">
@@ -18,7 +18,7 @@ const PortalContainer = ({
         path={'#'}
       />
       <PortalButton
-        color={'#FF5652'}
+        color={'#FFD12E'}
         value={calori.toFixed(0)}
         icon={'/icons/calory.svg'}
         name={'Kalori'}
@@ -33,10 +33,10 @@ const PortalContainer = ({
         path={'#'}
       />
       <PortalButton
-        color={'#000000'}
-        value={favorite}
+        color={'#FF5652'}
+        value={calNeed.toFixed(0)}
         icon={'/icons/spoon.svg'}
-        name={'Favorite'}
+        name={'dibutuhkan'}
         path={'/favorite'}
       />
     </Stack>

@@ -23,19 +23,19 @@ import HeroDetail from './HeroDetail';
 import NutsDetail from './NutsDetail';
 import MainDetail from './MainDetail';
 import Notfound from '../../components/atoms/NotFound';
+import { loginCtx } from '../../app/context/LoginContext';
 
 const Detail = () => {
   const [food, setFood] = useState([]);
-
+  const { user } = useContext(loginCtx);
   const [isLoading, setIsLoading] = useState(true);
 
   const param = useParams();
 
   const getDetailFoodAPI = useCallback(async () => {
     setIsLoading(true);
-    await getDetailFood(param.id)
+    await getDetailFood(param.id, user.token)
       .then((res) => {
-        console.log(res.data);
         setFood(res);
       })
       .finally(() => setIsLoading(false));
@@ -45,7 +45,6 @@ const Detail = () => {
     getDetailFoodAPI();
   }, []);
 
-  console.log(food);
   return (
     <>
       {isLoading && <Loading />}

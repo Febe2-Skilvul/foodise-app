@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Spinner, Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCtx } from '../app/context/FilterContext';
+import { loginCtx } from '../app/context/LoginContext';
 import { fetchFoods } from '../app/redux/foods/FoodSlice';
 import Loading from './atoms/Loading';
 import Notfound from './atoms/NotFound';
@@ -9,12 +10,13 @@ import CardFood from './CardFood';
 
 const ListFoods = () => {
   const { query } = useContext(filterCtx);
+  const { user } = useContext(loginCtx);
   const data = useSelector((state) => state.list);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchFoods({ query }));
+    dispatch(fetchFoods({ query, token: user.token }));
   }, [query]);
 
   return (
