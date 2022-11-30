@@ -17,9 +17,6 @@ const ServicePortal = () => {
 
   return (
     <>
-      {res.loading && <Loading />}
-      {res.error && null}
-
       <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
         <Stack className="d-flex flex-row justify-content-between">
           <TextOne colored={user.username}>Hii</TextOne>
@@ -30,39 +27,38 @@ const ServicePortal = () => {
             </Button>
           </Link>
         </Stack>
-        {res.track && !res.loading && !res.error ? (
-          <Stack className="p-2 p-md-4 d-flex shadow rounded flex-row justify-content-between">
-            <PortalButton
-              color={'#3BACB6'}
-              value={res.track.data ? 1 : 0}
-              icon={'/icons/food-bucket.svg'}
-              name={'Food Today'}
-              path={'#'}
-            />
-            <PortalButton
-              color={'#FF5652'}
-              value={0}
-              icon={'/icons/calory.svg'}
-              name={'Kalori'}
-              path={'#'}
-            />
 
-            <PortalButton
-              color={'#008000'}
-              value={0}
-              icon={'/icons/cloud-gray.svg'}
-              name={'Carbon'}
-              path={'#'}
-            />
-            <PortalButton
-              color={'#000000'}
-              value={0}
-              icon={'/icons/spoon.svg'}
-              name={'Favorite'}
-              path={'/favorite'}
-            />
-          </Stack>
-        ) : null}
+        <Stack className="p-2 p-md-4 d-flex shadow rounded flex-row justify-content-between">
+          <PortalButton
+            color={'#3BACB6'}
+            value={0}
+            icon={'/icons/food-bucket.svg'}
+            name={'Food Today'}
+            path={'#'}
+          />
+          <PortalButton
+            color={'#FF5652'}
+            value={0}
+            icon={'/icons/calory.svg'}
+            name={'Kalori'}
+            path={'#'}
+          />
+
+          <PortalButton
+            color={'#008000'}
+            value={0}
+            icon={'/icons/cloud-gray.svg'}
+            name={'Carbon'}
+            path={'#'}
+          />
+          <PortalButton
+            color={'#000000'}
+            value={0}
+            icon={'/icons/spoon.svg'}
+            name={'Favorite'}
+            path={'/favorite'}
+          />
+        </Stack>
       </Stack>
     </>
   );

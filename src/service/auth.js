@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_API = 'https://o76ho3.deta.dev/auth';
+const ROOT_API = 'https://foodise-back-end.deta.dev/auth';
 export async function postSignupUser(data) {
   const response = await axios
     .post(`${ROOT_API}/signup`, data)

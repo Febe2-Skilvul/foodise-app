@@ -6,6 +6,6 @@ console.log(res);
 export default axios.create({
   baseURL: `https://foodise-back-end.deta.dev/`,
   headers: {
-    Authorization: `bearer ${res.token}`,
+    Authorization: `bearer ${res === null ? ' ' : res.token}`,
   },
 });
