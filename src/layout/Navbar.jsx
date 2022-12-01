@@ -39,7 +39,7 @@ const Appbar = () => {
 
         <div className="container-nav">
           <div className="box-nav d-none d-md-flex">
-            <Link to={'/home'} className="btn-icon">
+            <Link to={'/favorite'} className="btn-icon">
               <Icon
                 image="/icons/bowl-food-solid.svg"
                 alt="favorite"

@@ -4,6 +4,7 @@ import filterReducer from './redux/foods/FilterSlice';
 import trackReducer from './redux/user/TrackingSlice';
 import trackingDateReducer from './redux/user/TrackDateSlice';
 import recipesReducer from './redux/recipes/RecipeSlice';
+import favoriteReducer from './redux/favorites/FavoriteSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     track: trackReducer,
     trackDate: trackingDateReducer,
     recipes: recipesReducer,
+    favorite: favoriteReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

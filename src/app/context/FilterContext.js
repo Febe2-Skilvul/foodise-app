@@ -12,6 +12,7 @@ const FilterCtxProvider = ({ children }) => {
   const [query, setQuery] = useState(initialState.query);
   const [category, setCategory] = useState(initialState.category);
   const [update, setUpdate] = useState(initialState.update);
+  const [favUpdate, setFavUpdate] = useState(initialState.update);
   return (
     <filterCtx.Provider
       value={{
@@ -21,6 +22,8 @@ const FilterCtxProvider = ({ children }) => {
         setCategory,
         update,
         setUpdate,
+        favUpdate,
+        setFavUpdate,
       }}>
       {children}
     </filterCtx.Provider>
