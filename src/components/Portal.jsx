@@ -12,6 +12,7 @@ const ServicePortal = () => {
   const { user } = useContext(loginCtx);
   const res = useSelector((state) => state.track);
 
+  console.log(res.track.data);
   return (
     <>
       <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
@@ -24,7 +25,7 @@ const ServicePortal = () => {
             </Button>
           </Link>
         </Stack>
-        {res.track.data ? (
+        {res.track.data.tracking !== null ? (
           <PortalContainer
             foodToday={res.track.data.tracking.food.length}
             calori={res.track.data.totCal}

@@ -73,6 +73,13 @@ const Appbar = () => {
             <Dropdown.Menu>
               <div style={{ paddingLeft: '15px' }}>
                 <Link
+                  to="/profile"
+                  className="text-decoration-none text-dark">
+                  Profile
+                </Link>
+              </div>
+              <div style={{ paddingLeft: '15px' }}>
+                <Link
                   to="/home"
                   className="text-decoration-none text-dark">
                   Foods
