@@ -1,3 +1,4 @@
+import axios from 'axios';
 import api from './api';
 
 export async function getFavoriteFoods() {
@@ -7,10 +8,14 @@ export async function getFavoriteFoods() {
 
   return response;
 }
-export async function setNewFoodTracking(data) {
-  const response = await api.post('/tracking', data).catch((err) => {
-    return err.response;
-  });
+export async function setNewFoodTracking(data, token) {
+  const response = await axios
+    .post('https://foodise-back-end.deta.dev/tracking', data, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .catch((err) => err.response);
 
   return response;
 }

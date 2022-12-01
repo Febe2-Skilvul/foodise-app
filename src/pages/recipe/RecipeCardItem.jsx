@@ -8,6 +8,7 @@ const RecipeCardItem = ({
   time,
   step,
   ingredients,
+  nutriscore,
 }) => {
   return (
     <div className="recipe-stats">
@@ -24,6 +25,11 @@ const RecipeCardItem = ({
           name={'Bahan'}
           value={ingredients}
           unit={'bahan'}
+        />
+        <StateRecipe
+          name={'Health Score'}
+          value={nutriscore.toFixed(0)}
+          unit={' '}
         />
       </div>
     </div>

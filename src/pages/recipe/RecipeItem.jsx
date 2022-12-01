@@ -83,6 +83,7 @@ const RecipeItem = () => {
                 portion={dataRecipe.portion}
                 step={dataRecipe.overview.length}
                 ingredients={dataRecipe.ingredient.length}
+                nutriscore={dataRecipe.nutriScore}
               />
             </Stack>
           ) : (

@@ -27,8 +27,8 @@ const MainDetail = ({ food }) => {
         },
       ],
     };
-    const res = await setNewFoodTracking(body).finally(() =>
-      setIsLoading(false)
+    const res = await setNewFoodTracking(body, user.token).finally(
+      () => setIsLoading(false)
     );
 
     if (res.status < 300) {

@@ -3,6 +3,7 @@ import { Button, Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginCtx } from '../app/context/LoginContext';
+import { trackingDay } from '../app/redux/user/TrackingSlice';
 
 import { TextOne } from './atoms/Fonts';
 import Icon from './atoms/Icon';
@@ -11,11 +12,17 @@ import PortalContainer from './atoms/PortalContainer';
 const ServicePortal = () => {
   const { user } = useContext(loginCtx);
   const res = useSelector((state) => state.track);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(trackingDay(user.token));
+  }, []);
   console.log(res.track.data);
   return (
     <>
-      {res.track.data && (
+      {res.loading && null}
+
+      {res.track.data && !res.loading ? (
         <Stack className=" mb-5 bg-body rounded d-flex flex-column justify-content-between align-items-start gap-5">
           <Stack className="d-flex flex-row justify-content-between">
             <TextOne colored={user.username}>Hii</TextOne>
@@ -38,6 +45,10 @@ const ServicePortal = () => {
             <PortalContainer calNeed={user.caloriNeeded} />
           )}
         </Stack>
+      ) : (
+        !res.loading && (
+          <PortalContainer calNeed={user.caloriNeeded} />
+        )
       )}
     </>
   );
