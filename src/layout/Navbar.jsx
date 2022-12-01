@@ -21,16 +21,7 @@ const Appbar = () => {
     setCategory(0);
   };
   return (
-    <Navbar
-      style={{
-        backgroundColor: '#fff',
-        position: 'sticky',
-        top: '0px',
-        transition: '1s',
-        borderBottom: '#f0f0f0 solid 2px',
-        zIndex: '1000',
-      }}
-      expand="lg">
+    <Navbar expand="lg" className="navbar">
       <Container>
         <Navbar.Brand>
           <Link to={'/home'} onClick={() => handleHome()}>
@@ -48,13 +39,13 @@ const Appbar = () => {
 
         <div className="container-nav">
           <div className="box-nav d-none d-md-flex">
-            <Link to={'/home'}>
+            <Link to={'/home'} className="btn-icon">
               <Icon
                 image="/icons/bowl-food-solid.svg"
                 alt="favorite"
               />
             </Link>
-            <Link to={'/recipe'}>
+            <Link to={'/recipe'} className="btn-icon">
               <Icon image="/icons/book-recipe.svg" alt="recipe" />
             </Link>
           </div>
@@ -71,61 +62,49 @@ const Appbar = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <div style={{ paddingLeft: '15px' }}>
-                <Link
-                  to="/profile"
-                  className="text-decoration-none text-dark">
-                  Profile
-                </Link>
-              </div>
-              <div style={{ paddingLeft: '15px' }}>
-                <Link
-                  to="/home"
-                  className="text-decoration-none text-dark">
-                  Foods
-                </Link>
-              </div>
-              <div style={{ paddingLeft: '15px' }}>
-                <Link
-                  to="/booked"
-                  className="text-decoration-none text-dark">
-                  Favorites
-                </Link>
-              </div>
-              <div style={{ paddingLeft: '15px' }}>
-                <Link
-                  to="/recipe"
-                  className="text-decoration-none text-dark">
-                  Recipes
-                </Link>
-              </div>
+              <Link
+                to="/profile"
+                className="text-decoration-none  nav">
+                Profile
+              </Link>
+
+              <Link to="/home" className="text-decoration-none  nav">
+                Foods
+              </Link>
+
+              <Link
+                to="/booked"
+                className="text-decoration-none  nav">
+                Favorites
+              </Link>
+
+              <Link
+                to="/recipe"
+                className="text-decoration-none  nav">
+                Recipes
+              </Link>
+
               <Dropdown.Divider />
               {isLogin ? (
                 <Dropdown.Item
                   link="#"
-                  style={{
-                    color: '#FF5652',
-                  }}
+                  className="nav-signup-active"
                   onClick={(e) => handleLogout()}>
                   Logout
                 </Dropdown.Item>
               ) : (
-                <>
-                  <Dropdown.Item
-                    link="#"
-                    onClick={() => setShow(true)}>
+                <div className="d-flex flex-column">
+                  <Link
+                    onClick={() => setShow(true)}
+                    className="text-decoration-none nav-login">
                     Login
-                  </Dropdown.Item>
+                  </Link>
                   <Link
                     to={'/signup'}
-                    className="text-decoration-none text-success text-center "
-                    style={{
-                      paddingLeft: '15px',
-                      fontWeight: 'bold',
-                    }}>
+                    className="text-decoration-none nav-signup-active">
                     Signup
                   </Link>
-                </>
+                </div>
               )}
             </Dropdown.Menu>
           </Dropdown>

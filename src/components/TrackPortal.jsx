@@ -30,12 +30,21 @@ const TrackPortal = () => {
     bulan: startDate.getMonth() + 1,
     tahun: startDate.getFullYear(),
   };
-  let dateFix = `${dateFormat.tahun}-${dateFormat.bulan}-${dateFormat.hari}`;
+  const dayFix = (day) => {
+    if (day < 10) {
+      return `0${day}`;
+    }
+    return day;
+  };
+  let dateFix = `${dateFormat.tahun}-${dateFormat.bulan}-${dayFix(
+    dateFormat.hari
+  )}`;
 
   useEffect(() => {
     dispatch(trackDate({ date: dateFix, token: user.token }));
   }, [startDate]);
-
+  console.log(dateFix);
+  console.log(res.track.data);
   return (
     <>
       {res.loading && <Loading />}

@@ -10,6 +10,7 @@ export const trackCtx = createContext(initialState);
 const TrackCtxProvider = ({ children }) => {
   const [content, setContent] = useState(initialState.menu);
   const [date, setDate] = useState(initialState.date);
+
   const value = {
     content,
     setContent,

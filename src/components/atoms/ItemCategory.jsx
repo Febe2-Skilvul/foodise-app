@@ -11,18 +11,18 @@ const CategoryItem = (props) => {
     color: '#000',
     transition: '1.3s',
   };
-
+  console.log(props);
   return (
     <Link
-      to={value === 0 ? '/home' : '/category'}
+      to={'/category'}
+      onClick={() => setCategory(value)}
       className="text-decoration-none">
       <div
-        onClick={() => setCategory(value)}
         className="d-flex align-items-center flex-column"
         style={{
-          width: '100px',
+          width: '80px',
           cursor: 'pointer',
-          marginLeft: '20px',
+          marginLeft: '10px',
         }}>
         <Icon
           image={category === value ? `${iconB}` : `${icon}`}
