@@ -21,7 +21,7 @@ const PortalButton = ({ color, value, icon, name, path }) => {
         <p
           style={{
             color: `${color}`,
-            fontSize: '24px',
+            fontSize: '20px',
             margin: '0',
             fontWeight: '600',
           }}>

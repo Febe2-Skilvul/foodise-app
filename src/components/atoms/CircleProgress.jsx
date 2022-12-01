@@ -5,7 +5,7 @@ const CircleProgress = ({ name, percent, value, color, unit }) => {
         className="percent"
         style={{
           '--clr': color,
-          '--num': percent,
+          '--num': percent < 100 ? percent : 100,
         }}>
         <dot className="dot"></dot>
         <svg>

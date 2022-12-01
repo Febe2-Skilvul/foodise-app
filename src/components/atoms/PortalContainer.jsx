@@ -35,7 +35,7 @@ const PortalContainer = ({
       <PortalButton
         color={'#FF5652'}
         value={calNeed.toFixed(0)}
-        icon={'/icons/spoon.svg'}
+        icon={'/icons/bullseye.svg'}
         name={'dibutuhkan'}
         path={'/favorite'}
       />

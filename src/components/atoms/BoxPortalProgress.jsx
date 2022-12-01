@@ -28,7 +28,7 @@ const BoxPortalProgress = ({
         <CircleProgress
           color={'#FF5652'}
           name="Calori"
-          value={caloriToday}
+          value={caloriToday.toFixed(0)}
           percent={(caloriToday / caloriNeed) * 100}
           unit="Kkal"
         />
@@ -44,7 +44,7 @@ const BoxPortalProgress = ({
         <CircleProgress
           color={'#FF5652'}
           name="Calori"
-          value={caloriToday}
+          value={caloriToday.toFixed(0)}
           percent={(caloriToday / caloriNeed) * 100}
           unit="Kkal"
         />

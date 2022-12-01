@@ -47,8 +47,8 @@ const Detail = () => {
 
   return (
     <>
-      {isLoading && <Loading />}
       <ServicePortal />
+      {isLoading && <Loading />}
       {!isLoading && food ? (
         <Row
           style={{

@@ -4,7 +4,7 @@ import CategoryItem from './atoms/ItemCategory';
 
 const CategoryBar = () => {
   return (
-    <Stack className="d-flex flex-row align-items-center justify-content-evenly category">
+    <Stack className="d-flex flex-row align-items-center justify-content-evenly category zIndex-100">
       {categories.map((item, i) => {
         return (
           <CategoryItem

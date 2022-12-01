@@ -24,7 +24,7 @@ const ListFoods = () => {
       {data.loading && <Loading />}
       {!data.loading && data.foods.length ? (
         <Stack
-          className="flex-row flex-wrap justify-content-center gap-5"
+          className="flex-row flex-wrap justify-content-center align-items-center gap-5 w-100"
           style={{
             marginTop: '50px',
           }}>

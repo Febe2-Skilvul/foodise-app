@@ -1,13 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Button, Stack } from 'react-bootstrap';
+import { filterCtx } from '../../app/context/FilterContext';
 import { loginCtx } from '../../app/context/LoginContext';
 import { porsiCtx } from '../../app/context/PorsiContext';
+import { trackCtx } from '../../app/context/TrackContext';
 import ButtonLoad from '../../components/atoms/ButtonLoad';
 import { setNewFoodTracking } from '../../service/tracking';
 
 const MainDetail = ({ food }) => {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
   const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
+  const { update, setUpdate } = useContext(filterCtx);
   const { user } = useContext(loginCtx);
   const [calori, setCalori] = useState(0);
   const [carbon, setCarbon] = useState(0);
@@ -33,8 +37,11 @@ const MainDetail = ({ food }) => {
 
     if (res.status < 300) {
       setOpen(true);
+      setUpdate((prev) => !prev);
     }
-    console.log(res);
+    if (res.status > 300) {
+      setError(true);
+    }
   };
   useEffect(() => {
     handleCount();
@@ -47,6 +54,14 @@ const MainDetail = ({ food }) => {
           onClose={() => setOpen(false)}
           dismissible>
           Makanan Berhasil Ditambahkan
+        </Alert>
+      )}
+      {error && (
+        <Alert
+          variant="danger"
+          onClose={() => setError(false)}
+          dismissible>
+          Makanan Tidak Berhasil Ditambahkan
         </Alert>
       )}
 
