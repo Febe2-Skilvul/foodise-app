@@ -3,43 +3,43 @@ import axios from 'axios';
 
 const initialState = {
   loading: false,
-  track: [],
+  recipes: [],
   error: '',
 };
 
-export const trackDate = createAsyncThunk(
-  'data/trackDate',
-  async ({ date, token }) => {
+export const fetchRecipe = createAsyncThunk(
+  'data/fetchRecipe',
+  async ({ token }) => {
     return axios
-      .get(`https://foodise-back-end.deta.dev/tracking/${date}`, {
+      .get(`https://foodise-back-end.deta.dev/recipes`, {
         headers: {
           Authorization: `bearer ${token}`,
         },
       })
       .then((res) => {
-        return res;
+        return res.data;
       });
   }
 );
 
-const trackDateSlice = createSlice({
-  name: 'track',
+const recipeSlice = createSlice({
+  name: 'recipe',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(trackDate.pending, (state) => {
+    builder.addCase(fetchRecipe.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(trackDate.fulfilled, (state, action) => {
+    builder.addCase(fetchRecipe.fulfilled, (state, action) => {
       state.loading = false;
-      state.track = action.payload;
+      state.foods = action.payload;
       state.error = '';
     });
-    builder.addCase(trackDate.rejected, (state, action) => {
+    builder.addCase(fetchRecipe.rejected, (state, action) => {
       state.loading = false;
-      state.track = [];
+      state.foods = [];
       state.error = action.error.message;
     });
   },
 });
 
-export default trackDateSlice.reducer;
+export default recipeSlice.reducer;

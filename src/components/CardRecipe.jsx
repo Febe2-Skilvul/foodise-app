@@ -11,7 +11,7 @@ const CardRecipe = ({ name, image, id }) => {
       <div className="content-recipe">
         <div className="box-recipe">
           <Link
-            to={'/recipe/:7y97ee0090p'}
+            to={`/recipe/${id}`}
             className="text-decoration-none text-dark">
             <h2>{name}</h2>
           </Link>
