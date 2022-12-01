@@ -22,13 +22,13 @@ const Recipes = () => {
     dispatch(fetchRecipe({ token: user.token }));
   }, []);
 
-  console.log(res);
+  console.log(res.foods);
 
   return (
     <>
       {' '}
       {res.loading && <Loading />}
-      {res && (
+      {res.foods && !res.loading ? (
         <Row className="justify-content-md-center ">
           <Col className="mt-5">
             <ServicePortal user={'Sherlin'} />
@@ -58,6 +58,8 @@ const Recipes = () => {
             )}
           </Col>
         </Row>
+      ) : (
+        !res.loading && <TrackNull />
       )}
     </>
   );

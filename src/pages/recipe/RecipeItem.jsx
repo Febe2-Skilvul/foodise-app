@@ -1,126 +1,96 @@
-import React from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Button, Col, Row, Stack } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { loginCtx } from '../../app/context/LoginContext';
 import BoxNutrition from '../../components/atoms/BoxNutrition';
-
+import Loading from '../../components/atoms/Loading';
+import Notfound from '../../components/atoms/NotFound';
 import ServicePortal from '../../components/Portal';
 import { recipe } from '../../config/recipes';
+import { getRecipeFood } from '../../service/food';
+import RecipeCardItem from './RecipeCardItem';
+import RecipeNuts from './RecipeNuts';
+import StateRecipe from './StateRecipe';
+import Step from './Step';
 
-const StateRecipe = ({ name, value, unit }) => {
-  return (
-    <div className="stat">
-      <img src="/icons/list-btn.svg" alt="" width={12} height={12} />{' '}
-      <p className="stat-title"> {name} : </p>
-      <p className="stat-value">
-        {value} <span className="stat-unit">{unit}</span>
-      </p>
-    </div>
-  );
-};
-const Step = ({ index, value }) => {
-  return (
-    <div className="step">
-      <div className="step-number">
-        <p>{index}</p>
-      </div>
-      <p className="step-value">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-    </div>
-  );
-};
 const RecipeItem = () => {
-  return (
-    <Row className="justify-content-md-center ">
-      <Col className="mt-5">
-        <ServicePortal user={'Sherlin'} />
-        <Stack className="d-flex flex-column-reverse flex-md-row justify-content-center gap-5">
-          <div className="w-100 w-md-75 border border-gray recipeitem-container">
-            <h3 className="title-recipe">Sate Ayam</h3>
-            <p className="desc-recipe">
-              Sate ayam adalah makanan khas Indonesia. Sate Ayam
-              dibuat dari daging ayam. Pada umumnya sate ayam dimasak
-              dengan cara dipanggang dengan menggunakan arang dan
-              disajikan dengan pilihan bumbu kacang atau bumbu kecap.
-              Sate ini biasanya disajikan bersama dengan lontong atau
-              nasi.
-            </p>
-            <div className="container-nuts">
-              <BoxNutrition
-                name={'Carbon'}
-                value={0.6}
-                color={'#455A64'}
-                unit={'kgc02'}
-              />
-              <BoxNutrition
-                color={'#FF5652'}
-                name={'Kalori'}
-                unit={'kkal'}
-                value={100}
-              />
-              <BoxNutrition
-                color={'#FFD12E'}
-                name={'Lemak'}
-                unit={'g'}
-                value={20}
-              />
-              <BoxNutrition
-                color={'#EBB376'}
-                name={'Karbo..'}
-                unit={'g'}
-                value={63}
-              />
-              <BoxNutrition
-                color={'#008000'}
-                name={'Protein'}
-                unit={'g'}
-                value={29}
-              />
-            </div>
-            <div className="box-step">
-              <h5>Langkah-Langkah</h5>
-              <Step index={1} />
-              <Step index={2} />
-              <Step index={3} />
-              <Step index={5} />
-            </div>
-            <Link to="/recipe" className="text-decoration-none">
-              <Button className="button-main">Resep Lain</Button>
-            </Link>
-          </div>
-          <div className="recipe-stats">
-            <div className="r-item-image">
-              <img className="img-fluid" src={recipe.image} alt="" />
-            </div>
-            <div className="stats">
-              <p className="recipe-name">Sate Ayam</p>
+  const { user } = useContext(loginCtx);
+  const [dataRecipe, setDataRecipe] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-              <StateRecipe
-                name={'Waktu Masak'}
-                value={'50'}
-                unit={'min'}
+  const param = useParams();
+
+  const getRecipeFoodData = useCallback(async () => {
+    setIsLoading(true);
+    await getRecipeFood(param.id, user.token)
+      .then((res) => {
+        setDataRecipe(res.data);
+      })
+      .finally(() => setIsLoading(false));
+  }, [getRecipeFood]);
+  useEffect(() => {
+    getRecipeFoodData();
+  }, [param.id]);
+
+  console.log('data =>', dataRecipe);
+  return (
+    <>
+      <Row className="justify-content-md-center ">
+        <Col className="mt-5">
+          <ServicePortal user={'Sherlin'} />
+          {isLoading && <Loading />}
+          {!isLoading && dataRecipe ? (
+            <Stack className="d-flex flex-column-reverse flex-md-row justify-content-center gap-5">
+              <div className="w-100 w-md-75 border border-gray recipeitem-container">
+                <h3 className="title-recipe">
+                  {dataRecipe.food.name}
+                </h3>
+                <p className="desc-recipe">{dataRecipe.food.desc}</p>
+                <RecipeNuts food={dataRecipe.food} />
+                <div className="box-ingred">
+                  <h5>Bahan-bahan</h5>
+                  <div className="all-ingred">
+                    {dataRecipe.ingredient.map((bahan, i) => {
+                      return (
+                        <p key={i} className="ingred">
+                          {bahan}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="box-step">
+                  <h5>Langkah-langkah</h5>
+                  {dataRecipe.overview.map((step, i) => {
+                    return (
+                      <Step key={i} index={i + 1} value={step} />
+                    );
+                  })}
+                </div>
+                <Link to="/recipe" className="text-decoration-none">
+                  <Button className="button-main">Resep Lain</Button>
+                </Link>
+              </div>
+              <RecipeCardItem
+                image={dataRecipe.food.image}
+                name={dataRecipe.food.name}
+                time={dataRecipe.timeServing}
+                portion={dataRecipe.portion}
+                step={dataRecipe.overview.length}
+                ingredients={dataRecipe.ingredient.length}
               />
-              <StateRecipe
-                name={'Telur'}
-                value={'2'}
-                unit={'butir'}
-              />
-              <StateRecipe name={'Daging'} value={'2'} unit={'kg'} />
-              <StateRecipe
-                name={'Minyak Goreng'}
-                value={'500'}
-                unit={'ml'}
-              />
-              <StateRecipe
-                name={'Kacang Tanah'}
-                value={'200'}
-                unit={'g'}
-              />
-            </div>
-          </div>
-        </Stack>
-      </Col>
-    </Row>
+            </Stack>
+          ) : (
+            !isLoading && <Notfound />
+          )}
+        </Col>
+      </Row>
+    </>
   );
 };
 

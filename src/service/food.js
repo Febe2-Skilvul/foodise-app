@@ -27,3 +27,14 @@ export async function getDetailFood(id, token) {
 
   return response;
 }
+export async function getRecipeFood(id, token) {
+  const response = await axios
+    .get(`https://foodise-back-end.deta.dev/recipes/${id}`, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .catch((err) => err.response);
+
+  return response;
+}

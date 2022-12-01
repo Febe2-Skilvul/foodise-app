@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import api from '../../../service/api';
 
 const initialState = {
   loading: false,
@@ -11,7 +10,6 @@ const initialState = {
 export const trackDate = createAsyncThunk(
   'data/trackDate',
   async ({ date, token }) => {
-    console.log('tok', token);
     return axios
       .get(`https://foodise-back-end.deta.dev/tracking/${date}`, {
         headers: {
