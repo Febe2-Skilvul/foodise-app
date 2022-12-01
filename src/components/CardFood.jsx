@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { filterCtx } from '../app/context/FilterContext';
 import { loginCtx } from '../app/context/LoginContext';
 import {
   removeFavoriteFoods,
@@ -8,9 +9,19 @@ import {
 } from '../service/food';
 import Icon from './atoms/Icon';
 
-const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
+const CardFood = ({
+  name,
+  img,
+  id,
+  calori,
+  carbon,
+  favorite,
+  id_fav,
+}) => {
   const { user } = useContext(loginCtx);
+  const { setFavUpdate } = useContext(filterCtx);
   const [isFavorite, setIsFavorite] = useState(favorite);
+  const [idFavorite, setIdFavorite] = useState(id_fav);
   const disCarbon = carbon.toFixed(1);
   const disCalori = calori.toFixed(0);
   const handleSetFavorite = async () => {
@@ -21,14 +32,17 @@ const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
     const res = await setFavoriteFoods(user.token, body);
 
     if (res.status < 300) {
+      setIdFavorite(res.data.favorite);
+      setFavUpdate((prev) => !prev);
       setIsFavorite(true);
     }
   };
   const handleRemoveFavorite = async () => {
-    const res = await removeFavoriteFoods(user.token, id);
+    const res = await removeFavoriteFoods(user.token, idFavorite);
 
     if (res.status < 300) {
       setIsFavorite(false);
+      setFavUpdate((prev) => !prev);
     }
   };
   return (

@@ -11,7 +11,7 @@ const CategoryItem = (props) => {
     color: '#000',
     transition: '1.3s',
   };
-  console.log(props);
+
   return (
     <Link
       to={'/category'}
