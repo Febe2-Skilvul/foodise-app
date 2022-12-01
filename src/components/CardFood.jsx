@@ -1,10 +1,36 @@
+import { useContext, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { loginCtx } from '../app/context/LoginContext';
+import {
+  removeFavoriteFoods,
+  setFavoriteFoods,
+} from '../service/food';
 import Icon from './atoms/Icon';
 
 const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
+  const { user } = useContext(loginCtx);
+  const [isFavorite, setIsFavorite] = useState(favorite);
   const disCarbon = carbon.toFixed(1);
   const disCalori = calori.toFixed(0);
+  const handleSetFavorite = async () => {
+    const body = {
+      user: user._id,
+      food: id,
+    };
+    const res = await setFavoriteFoods(user.token, body);
+
+    if (res.status < 300) {
+      setIsFavorite(true);
+    }
+  };
+  const handleRemoveFavorite = async () => {
+    const res = await removeFavoriteFoods(user.token, id);
+
+    if (res.status < 300) {
+      setIsFavorite(false);
+    }
+  };
   return (
     <Card
       style={{
@@ -47,22 +73,28 @@ const CardFood = ({ name, img, id, calori, carbon, favorite }) => {
               </p>
             </div>
 
-            {favorite ? (
-              <Button
-                variant="light"
-                style={{
-                  margin: '0',
-                }}>
-                <Icon image={'/icons/heart-red.svg'} />
-              </Button>
+            {isFavorite ? (
+              <Link to={'#'}>
+                <Button
+                  variant="light"
+                  onClick={() => handleRemoveFavorite()}
+                  style={{
+                    margin: '0',
+                  }}>
+                  <Icon image={'/icons/heart-red.svg'} />
+                </Button>
+              </Link>
             ) : (
-              <Button
-                variant="light"
-                style={{
-                  margin: '0',
-                }}>
-                <Icon image={'/icons/heart-regular.svg'} />
-              </Button>
+              <Link to={'#'}>
+                <Button
+                  onClick={() => handleSetFavorite()}
+                  variant="light"
+                  style={{
+                    margin: '0',
+                  }}>
+                  <Icon image={'/icons/heart-regular.svg'} />
+                </Button>
+              </Link>
             )}
           </div>
           <Card.Title className="text-card mt-3">{name}</Card.Title>

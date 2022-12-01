@@ -1,18 +1,26 @@
 import axios from 'axios';
-import api from './api';
 
 const ROOT_API = 'https://o76ho3.deta.dev/auth';
 
-export async function getFavoriteFoods(token) {
+export async function setFavoriteFoods(token, body) {
   const response = await axios
-    .get(`https://foodise-back-end.deta.dev/favorites`, {
+    .post(`https://foodise-back-end.deta.dev/favorites`, body, {
       headers: {
         Authorization: `bearer ${token}`,
       },
     })
-    .catch((err) => {
-      return err.response;
-    });
+    .catch((err) => err.response);
+
+  return response;
+}
+export async function removeFavoriteFoods(token, id) {
+  const response = await axios
+    .delete(`https://foodise-back-end.deta.dev/favorites/${id}`, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .catch((err) => err.response);
 
   return response;
 }
