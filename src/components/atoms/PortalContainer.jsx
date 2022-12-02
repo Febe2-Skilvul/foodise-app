@@ -15,14 +15,14 @@ const PortalContainer = ({
         value={foodToday}
         icon={'/icons/food-bucket.svg'}
         name={'Food Today'}
-        path={'#'}
+        path={'/track'}
       />
       <PortalButton
         color={'#FFD12E'}
         value={calori.toFixed(0)}
         icon={'/icons/calory.svg'}
         name={'Kalori'}
-        path={'#'}
+        path={'/track'}
       />
 
       <PortalButton
@@ -30,14 +30,14 @@ const PortalContainer = ({
         value={carbon}
         icon={'/icons/cloud-gray.svg'}
         name={'Carbon'}
-        path={'#'}
+        path={'/track'}
       />
       <PortalButton
         color={'#FF5652'}
         value={calNeed.toFixed(0)}
         icon={'/icons/bullseye.svg'}
         name={'dibutuhkan'}
-        path={'/favorite'}
+        path={'/home'}
       />
     </Stack>
   );

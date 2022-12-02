@@ -12,7 +12,6 @@ import Layout from './layout/Layout';
 import Category from './pages/category/Category';
 import Detail from './pages/detail/Detail';
 import Favorites from './pages/Favorites/Favorites';
-
 import Home from './pages/home/Home';
 import LandingPage from './pages/Landing-page/LandingPage';
 import Profile from './pages/profile/Profile';

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Row, Stack } from 'react-bootstrap';
+import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { trackCtx } from '../app/context/TrackContext';
 import TrackNull from './atoms/TrackNull';
@@ -10,7 +10,7 @@ import TrackMenu from './TrackMenu';
 import TrackNutrition from './TrackNutrition';
 
 const TrackContent = () => {
-  const { content, date } = useContext(trackCtx);
+  const { content } = useContext(trackCtx);
   const res = useSelector((state) => state.trackDate);
   return (
     <>

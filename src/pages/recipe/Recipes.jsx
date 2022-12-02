@@ -5,7 +5,6 @@ import './recipe.css';
 import ServicePortal from '../../components/Portal';
 
 import CardRecipe from '../../components/CardRecipe';
-import { fakeRecipe } from '../../config/recipes';
 import { loginCtx } from '../../app/context/LoginContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipe } from '../../app/redux/recipes/RecipeSlice';
@@ -21,8 +20,6 @@ const Recipes = () => {
   useEffect(() => {
     dispatch(fetchRecipe({ token: user.token }));
   }, []);
-
-  console.log(res.foods);
 
   return (
     <>
@@ -48,6 +45,9 @@ const Recipes = () => {
                         key={i}
                         image={recipe.food.image}
                         id={recipe._id}
+                        calori={recipe.food.cal}
+                        carbon={recipe.food.carbon}
+                        timeServe={recipe.timeServing}
                       />
                     );
                   })}

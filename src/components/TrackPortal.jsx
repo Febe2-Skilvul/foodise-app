@@ -1,29 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { Accordion, Button, Modal, Stack } from 'react-bootstrap';
-import CircleProgress from './atoms/CircleProgress';
+import { Button, Modal, Stack } from 'react-bootstrap';
 import { TextOne } from './atoms/Fonts';
 import Icon from './atoms/Icon';
 import { loginCtx } from '../app/context/LoginContext';
 import { useDispatch, useSelector } from 'react-redux';
-import { trackingDay } from '../app/redux/user/TrackingSlice';
 import { trackDate } from '../app/redux/user/TrackDateSlice';
 import Loading from './atoms/Loading';
-import TrackNull from './atoms/TrackNull';
 import BoxPortalProgress from './atoms/BoxPortalProgress';
-import { trackCtx } from '../app/context/TrackContext';
 
 const TrackPortal = () => {
   const { user } = useContext(loginCtx);
-  const { setDate } = useContext(trackCtx);
   const res = useSelector((state) => state.trackDate);
   const [show, setShow] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [dataToday, setDataToday] = useState({
-    food: '',
-    calori: '',
-    carbon: '',
-  });
+
   const dispatch = useDispatch();
   let dateFormat = {
     hari: startDate.getDate(),
@@ -43,8 +34,7 @@ const TrackPortal = () => {
   useEffect(() => {
     dispatch(trackDate({ date: dateFix, token: user.token }));
   }, [startDate]);
-  console.log(dateFix);
-  console.log(res.track.data);
+
   return (
     <>
       {res.loading && <Loading />}

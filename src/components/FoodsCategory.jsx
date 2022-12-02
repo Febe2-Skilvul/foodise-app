@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { Spinner, Stack } from 'react-bootstrap';
+import { useContext, useEffect } from 'react';
+import { Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCtx } from '../app/context/FilterContext';
 import { filterFoods } from '../app/redux/foods/FilterSlice';
-import { fetchFoods } from '../app/redux/foods/FoodSlice';
 import Loading from './atoms/Loading';
 import Notfound from './atoms/NotFound';
 import CardFood from './CardFood';
@@ -18,7 +17,6 @@ const FoodsCategory = () => {
     dispatch(filterFoods({ category }));
   }, [category]);
 
-  console.log(data.foods);
   return (
     <>
       {data.loading && <Loading />}

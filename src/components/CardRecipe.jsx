@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './atoms/Icon';
 
-const CardRecipe = ({ name, image, id }) => {
+const CardRecipe = ({
+  name,
+  image,
+  id,
+  carbon,
+  calori,
+  timeServe,
+}) => {
   return (
     <div className="card-recipe">
       <div className="img-recipe">
@@ -26,7 +33,7 @@ const CardRecipe = ({ name, image, id }) => {
                 alignItems: 'center',
                 gap: '3px',
               }}>
-              <Icon image={'/icons/clock.svg'} /> 15m
+              <Icon image={'/icons/clock.svg'} /> {timeServe}m
             </div>
             <div
               style={{
@@ -37,7 +44,7 @@ const CardRecipe = ({ name, image, id }) => {
                 alignItems: 'center',
                 gap: '3px',
               }}>
-              <Icon image={'/icons/cloud-gray.svg'} /> 1.3
+              <Icon image={'/icons/cloud-gray.svg'} /> {carbon}
             </div>
             <div
               style={{
@@ -48,7 +55,7 @@ const CardRecipe = ({ name, image, id }) => {
                 alignItems: 'center',
                 gap: '3px',
               }}>
-              <Icon image={'/icons/calory.svg'} /> 107
+              <Icon image={'/icons/calory.svg'} /> {calori.toFixed(0)}
             </div>
           </div>
         </div>

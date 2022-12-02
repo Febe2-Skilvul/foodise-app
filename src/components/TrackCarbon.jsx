@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { loginCtx } from '../app/context/LoginContext';
 import CircleProgress from './atoms/CircleProgress';
 
 const TrackCarbon = () => {

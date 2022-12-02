@@ -3,7 +3,6 @@ import { Alert, Button, Stack } from 'react-bootstrap';
 import { filterCtx } from '../../app/context/FilterContext';
 import { loginCtx } from '../../app/context/LoginContext';
 import { porsiCtx } from '../../app/context/PorsiContext';
-import { trackCtx } from '../../app/context/TrackContext';
 import ButtonLoad from '../../components/atoms/ButtonLoad';
 import { setNewFoodTracking } from '../../service/tracking';
 
@@ -11,7 +10,7 @@ const MainDetail = ({ food }) => {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const { porsi, handlePlus, handleMinus } = useContext(porsiCtx);
-  const { update, setUpdate } = useContext(filterCtx);
+  const { setUpdate } = useContext(filterCtx);
   const { user } = useContext(loginCtx);
   const [calori, setCalori] = useState(0);
   const [carbon, setCarbon] = useState(0);

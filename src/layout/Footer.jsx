@@ -35,7 +35,15 @@ function Footer() {
             <p>Special Credit for Skilvul</p>
           </div>
         </Stack>
-        <div className="pt-4 pb-2">
+        <div className="pt-4 pb-2 d-flex flex-column gap-3">
+          <div className="w-100 d-flex justify-content-center">
+            <img
+              src="/images/danone-thum.png"
+              alt="danone"
+              width={100}
+              height={40}
+            />
+          </div>
           <p className="text-center">
             Copyright © Team FEBE 2 - Danone #Tech4Impact 2022 | All
             Right Reserved

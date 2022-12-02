@@ -7,12 +7,7 @@ import React, {
 
 import './detail.css';
 
-import { Alert, Button, Col, Row, Stack } from 'react-bootstrap';
-import ListFoods from '../../components/ListFoods';
-import Nutrition from '../../components/Nutrition';
-import fakeDetail from '../../config/detail';
-
-import { porsiCtx } from '../../app/context/PorsiContext';
+import { Col, Row, Stack } from 'react-bootstrap';
 import ServicePortal from '../../components/Portal';
 import { TextOne } from '../../components/atoms/Fonts';
 import RecommendedFood from '../../components/RecommendedFood';

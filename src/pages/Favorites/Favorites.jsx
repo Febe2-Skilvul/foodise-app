@@ -1,7 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
-import { Col, Row, Stack } from 'react-bootstrap';
-import { loginCtx } from '../../app/context/LoginContext';
-import CardFood from '../../components/CardFood';
+import { Col, Row } from 'react-bootstrap';
 import ServicePortal from '../../components/Portal';
 
 import ListFavoriteFood from './ListFavoriteFood';

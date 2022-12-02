@@ -1,7 +1,6 @@
 import React from 'react';
 import { Stack } from 'react-bootstrap';
 import { features } from '../config';
-import { TextOne } from './atoms/Fonts';
 import CardFeature from './CardFeature';
 
 function Features() {
