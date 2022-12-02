@@ -15,7 +15,7 @@ import Favorites from './pages/Favorites/Favorites';
 import Home from './pages/home/Home';
 import LandingPage from './pages/Landing-page/LandingPage';
 import Profile from './pages/profile/Profile';
-import RecipeItem from './pages/recipe/RecipeItem';
+import RecipeItem from './components/RecipeItem';
 import Recipes from './pages/recipe/Recipes';
 import Signup from './pages/signup/Signup';
 import TrackingPage from './pages/tracking';

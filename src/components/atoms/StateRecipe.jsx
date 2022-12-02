@@ -1,5 +1,3 @@
-import React from 'react';
-
 const StateRecipe = ({ name, value, unit }) => {
   return (
     <div className="stat">
