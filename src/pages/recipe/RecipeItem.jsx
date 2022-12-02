@@ -7,15 +7,12 @@ import React, {
 import { Button, Col, Row, Stack } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { loginCtx } from '../../app/context/LoginContext';
-import BoxNutrition from '../../components/atoms/BoxNutrition';
 import Loading from '../../components/atoms/Loading';
 import Notfound from '../../components/atoms/NotFound';
 import ServicePortal from '../../components/Portal';
-import { recipe } from '../../config/recipes';
 import { getRecipeFood } from '../../service/food';
 import RecipeCardItem from './RecipeCardItem';
 import RecipeNuts from './RecipeNuts';
-import StateRecipe from './StateRecipe';
 import Step from './Step';
 
 const RecipeItem = () => {
@@ -37,7 +34,6 @@ const RecipeItem = () => {
     getRecipeFoodData();
   }, [param.id]);
 
-  console.log('data =>', dataRecipe);
   return (
     <>
       <Row className="justify-content-md-center ">

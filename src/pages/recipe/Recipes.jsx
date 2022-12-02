@@ -5,7 +5,6 @@ import './recipe.css';
 import ServicePortal from '../../components/Portal';
 
 import CardRecipe from '../../components/CardRecipe';
-import { fakeRecipe } from '../../config/recipes';
 import { loginCtx } from '../../app/context/LoginContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipe } from '../../app/redux/recipes/RecipeSlice';
@@ -21,8 +20,6 @@ const Recipes = () => {
   useEffect(() => {
     dispatch(fetchRecipe({ token: user.token }));
   }, []);
-
-  console.log('recipes', res.foods);
 
   return (
     <>

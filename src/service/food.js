@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const ROOT_API = 'https://o76ho3.deta.dev/auth';
-
 export async function setFavoriteFoods(token, body) {
   const response = await axios
     .post(`https://foodise-back-end.deta.dev/favorites`, body, {

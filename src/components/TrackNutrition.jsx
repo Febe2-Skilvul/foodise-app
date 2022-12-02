@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ProgressBar, Stack } from 'react-bootstrap';
+import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { loginCtx } from '../app/context/LoginContext';
 

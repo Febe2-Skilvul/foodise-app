@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { TextOne } from '../../components/atoms/Fonts';
 import Features from '../../components/Features';
 import Hero from '../../components/Hero';

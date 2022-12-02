@@ -1,14 +1,9 @@
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { loginCtx } from '../app/context/LoginContext';
-import API from '../service/api';
-import {
-  login,
-  postUserRegister,
-  setLoginUser,
-} from '../service/auth';
+
+import { postUserRegister, setLoginUser } from '../service/auth';
 import ButtonLoad from './atoms/ButtonLoad';
 
 const FormLogin = () => {

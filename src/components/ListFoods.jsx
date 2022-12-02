@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import { Spinner, Stack } from 'react-bootstrap';
+import { useContext, useEffect } from 'react';
+import { Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCtx } from '../app/context/FilterContext';
 import { loginCtx } from '../app/context/LoginContext';
