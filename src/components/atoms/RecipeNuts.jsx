@@ -1,5 +1,5 @@
 import React from 'react';
-import BoxNutrition from '../../components/atoms/BoxNutrition';
+import BoxNutrition from './BoxNutrition';
 
 const RecipeNuts = ({ food }) => {
   return (

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterCtx } from '../../app/context/FilterContext';
-import { loginCtx } from '../../app/context/LoginContext';
-import { fetchFavorite } from '../../app/redux/favorites/FavoriteSlice';
-import Loading from '../../components/atoms/Loading';
-import TrackNull from '../../components/atoms/TrackNull';
-import CardFood from '../../components/CardFood';
+import { filterCtx } from '../app/context/FilterContext';
+import { loginCtx } from '../app/context/LoginContext';
+import { fetchFavorite } from '../app/redux/favorites/FavoriteSlice';
+import Loading from './atoms/Loading';
+import TrackNull from './atoms/TrackNull';
+import CardFood from './CardFood';
 
 const ListFavoriteFood = () => {
   const res = useSelector((state) => state.favorite);
