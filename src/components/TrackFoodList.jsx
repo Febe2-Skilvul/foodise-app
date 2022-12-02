@@ -17,6 +17,7 @@ const TrackFoodList = () => {
             image={food.foodId.image}
             calori={food.foodId.cal}
             carbon={food.foodId.carbon}
+            name={food.foodId.name}
           />
         );
       })}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const TrackNull = () => {
+const TrackNull = ({ message }) => {
   return (
     <div className="col mt-5 d-flex w-100 flex-column justify-content-center align-items-center mb-5 alert-null ">
       <img
@@ -15,6 +15,13 @@ const TrackNull = () => {
           border: 'none',
         }}
       />
+      <p
+        style={{
+          fontSize: '1.5em',
+          color: '#000',
+        }}>
+        {message}
+      </p>
       <Link to={'/home'} className="text-decoration-none">
         <Button className="button-main">Home</Button>
       </Link>

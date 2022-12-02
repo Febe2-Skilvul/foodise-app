@@ -17,20 +17,17 @@ function Footer() {
           <h6>Site Map</h6>
           <div className="d-flex flex-column align-items-start p-2 gap-1">
             <Link to={'/home'}>Home</Link>
-            <Link to={'/booked'}>Favourite</Link>
+            <Link to={'/favorite'}>Favourite</Link>
+            <Link to={'/profile'}>Profile</Link>
+            <Link to={'/recipe'}>Recipe</Link>
             <Link to={'/signup'}>Signup</Link>
           </div>
         </Stack>
         <Stack>
           <div className="d-flex flex-column align-items-start p-2 gap-1">
             <h6>Credit:</h6>
-            <p>
-              API by{' '}
-              <a href="https://spoonacular.com/food-api">
-                Spoonacular
-              </a>
-            </p>
             <p>Icon by FontAwesome</p>
+            <p>Photos by Unsplash </p>
             <p>Our Partner Danone </p>
             <p>Special Credit for Skilvul</p>
           </div>

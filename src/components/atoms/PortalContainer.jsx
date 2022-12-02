@@ -14,7 +14,7 @@ const PortalContainer = ({
         color={'#3BACB6'}
         value={foodToday}
         icon={'/icons/food-bucket.svg'}
-        name={'Food Today'}
+        name={'Makanan'}
         path={'/track'}
       />
       <PortalButton
