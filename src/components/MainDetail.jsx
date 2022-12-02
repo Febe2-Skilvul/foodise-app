@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Button, Stack } from 'react-bootstrap';
-import { filterCtx } from '../../app/context/FilterContext';
-import { loginCtx } from '../../app/context/LoginContext';
-import { porsiCtx } from '../../app/context/PorsiContext';
-import ButtonLoad from '../../components/atoms/ButtonLoad';
-import { setNewFoodTracking } from '../../service/tracking';
+import { filterCtx } from '../app/context/FilterContext';
+import { loginCtx } from '../app/context/LoginContext';
+import { porsiCtx } from '../app/context/PorsiContext';
+import ButtonLoad from './atoms/ButtonLoad';
+import { setNewFoodTracking } from '../service/tracking';
 
 const MainDetail = ({ food }) => {
   const [open, setOpen] = useState(false);

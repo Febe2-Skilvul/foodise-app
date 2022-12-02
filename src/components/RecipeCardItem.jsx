@@ -1,5 +1,5 @@
 import React from 'react';
-import StateRecipe from './StateRecipe';
+import StateRecipe from './atoms/StateRecipe';
 
 const RecipeCardItem = ({
   image,

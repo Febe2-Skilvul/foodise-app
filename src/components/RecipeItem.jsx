@@ -6,14 +6,14 @@ import React, {
 } from 'react';
 import { Button, Col, Row, Stack } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import { loginCtx } from '../../app/context/LoginContext';
-import Loading from '../../components/atoms/Loading';
-import Notfound from '../../components/atoms/NotFound';
-import ServicePortal from '../../components/Portal';
-import { getRecipeFood } from '../../service/food';
+import { loginCtx } from '../app/context/LoginContext';
+import Loading from './atoms/Loading';
+import Notfound from './atoms/NotFound';
+import ServicePortal from './Portal';
+import { getRecipeFood } from '../service/food';
 import RecipeCardItem from './RecipeCardItem';
-import RecipeNuts from './RecipeNuts';
-import Step from './Step';
+import RecipeNuts from './atoms/RecipeNuts';
+import Step from './atoms/Step';
 
 const RecipeItem = () => {
   const { user } = useContext(loginCtx);

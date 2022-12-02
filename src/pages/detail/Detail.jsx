@@ -12,9 +12,9 @@ import RecommendedFood from '../../components/RecommendedFood';
 import { useParams } from 'react-router-dom';
 import { getDetailFood } from '../../service/food';
 import Loading from '../../components/atoms/Loading';
-import HeroDetail from './HeroDetail';
-import NutsDetail from './NutsDetail';
-import MainDetail from './MainDetail';
+import HeroDetail from '../../components/HeroDetail';
+import NutsDetail from '../../components/NutsDetail';
+import MainDetail from '../../components/MainDetail';
 import Notfound from '../../components/atoms/NotFound';
 import { loginCtx } from '../../app/context/LoginContext';
 

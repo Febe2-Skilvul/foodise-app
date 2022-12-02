@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack } from 'react-bootstrap';
-import Nutrition from '../../components/Nutrition';
+import Nutrition from './Nutrition';
 
 const NutsDetail = ({ cal, fat, carb, protein }) => {
   return (
