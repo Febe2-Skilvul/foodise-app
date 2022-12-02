@@ -1,9 +1,9 @@
-const CardFoodAdded = ({ image, calori, carbon }) => {
+const CardFoodAdded = ({ image, calori, carbon, name }) => {
   return (
     <div className="d-flex flex-row shadow rounded p-3 track-food-box">
       <div className="box-left">
         <img src={image} alt="" width={150} height={100} />
-        <p>'Berry Banana Breakfast Smoothie'</p>
+        <p>{name}</p>
       </div>
 
       <div className="track-food-nutri">

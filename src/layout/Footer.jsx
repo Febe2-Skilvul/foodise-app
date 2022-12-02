@@ -17,7 +17,9 @@ function Footer() {
           <h6>Site Map</h6>
           <div className="d-flex flex-column align-items-start p-2 gap-1">
             <Link to={'/home'}>Home</Link>
-            <Link to={'/booked'}>Favourite</Link>
+            <Link to={'/favorite'}>Favourite</Link>
+            <Link to={'/profile'}>Profile</Link>
+            <Link to={'/recipe'}>Recipe</Link>
             <Link to={'/signup'}>Signup</Link>
           </div>
         </Stack>
