@@ -1,18 +1,20 @@
-import React from "react";
-import { TextOne } from "./atoms/Fonts";
+import React from 'react';
 
 function CardProfile() {
   return (
     <div className="d-flex justify-content-around align-items-center">
       <div className="d-flex align-items-center">
-        <img src="/images/avatar1.png" alt="" className="img-profile" />
+        <img
+          src="/images/avatar1.png"
+          alt=""
+          className="img-profile"
+        />
         <div className="ps-5">
           <h1>Sherlin Tzu</h1>
           <h5
             style={{
-              color: "#3BACB6",
-            }}
-          >
+              color: '#3BACB6',
+            }}>
             sherlintzu@gmail.com
           </h5>
         </div>

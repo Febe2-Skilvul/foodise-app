@@ -5,7 +5,6 @@ import CircleProgress from './atoms/CircleProgress';
 const TrackCarbon = () => {
   const food = useSelector((state) => state.trackDate.track.data);
 
-  console.log(food);
   return (
     <Stack
       className=" p-3 w-100 bg-body rounded d-flex flex-row flex-wrap justify-content-center align-items-center gap-3"

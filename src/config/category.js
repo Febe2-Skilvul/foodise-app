@@ -1,11 +1,5 @@
 const categories = [
   {
-    name: 'all',
-    icon: '/icons/food-bucket.svg',
-    iconB: '/icons/black/food-bucket-black.svg',
-    value: 0,
-  },
-  {
     name: 'main',
     icon: '/icons/bowl-rice-solid.svg',
     iconB: '/icons/black/bowl-rice-black.svg',

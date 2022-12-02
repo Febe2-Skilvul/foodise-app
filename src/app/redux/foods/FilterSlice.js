@@ -10,7 +10,6 @@ const initialState = {
 export const filterFoods = createAsyncThunk(
   'data/filterFoods',
   async ({ category }) => {
-    console.log(category);
     return api.get(`/foods/category/${category}`).then((res) => {
       return res.data;
     });

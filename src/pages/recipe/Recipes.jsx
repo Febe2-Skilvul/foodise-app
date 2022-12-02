@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Col, Row, Stack } from 'react-bootstrap';
 import { TextOne } from '../../components/atoms/Fonts';
-import './recipe.css';
 import ServicePortal from '../../components/Portal';
 
 import CardRecipe from '../../components/CardRecipe';

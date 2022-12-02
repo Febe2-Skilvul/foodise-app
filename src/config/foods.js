@@ -1,426 +1,75 @@
-const fakeData = [
+const RecomDefault = [
   {
-    id: 715497,
-    title: 'Berry Banana Breakfast Smoothie',
-    image: 'https://spoonacular.com/recipeImages/715497-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 20.4186,
-          unit: 'g',
-        },
-      ],
+    _id: '638563615b9aae82363a7ba3',
+    name: 'Kue Plum',
+    image: 'https://spoonacular.com/recipeImages/656444-312x231.jpg',
+    category: {
+      _id: '3',
+      name: 'Dessert',
+      __v: 0,
     },
+    cal: 462.8,
+    protein: 9.03,
+    carb: 50.09,
+    fat: 26.29,
+    carbon: 0.63,
+    desc: 'Kue Plum mungkin resep yang bagus untuk menjadi kotak resep makanan penutup Anda. resep ini mencakup 12% dari kebutuhan vitamin dan mineral harian Anda. Ini adalah pilihan yang baik jika Anda mengikuti diet vegetarian lacto ovo. Jika Anda memiliki tepung, gula, mentega, dan beberapa bahan lainnya, Anda bisa membuatnya. Dari persiapan hingga ke piring, resep ini memakan waktu kurang lebih kurang lebih 45 menit.',
+    createdAt: '2022-11-29T01:41:53.307Z',
+    updatedAt: '2022-11-29T01:41:53.307Z',
   },
   {
-    id: 655219,
-    title: 'Peanut Butter And Chocolate Oatmeal',
-    image: 'https://spoonacular.com/recipeImages/655219-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 19.3076,
-          unit: 'g',
-        },
-      ],
+    _id: '638563615b9aae82363a7ba4',
+    name: 'Roti Jahe',
+    image: 'https://spoonacular.com/recipeImages/64694-312x231.jpg',
+    category: {
+      _id: '3',
+      name: 'Dessert',
+      __v: 0,
     },
+    cal: 227.56,
+    protein: 2.65,
+    carb: 46.02,
+    fat: 4.05,
+    carbon: 0.52,
+    desc: 'Roti jahe dapat dibuat kira-kira dalam waktu sekitar 45 menit. cocok dengan baik sebagai hidangan penutup. Jika Anda memiliki tepung, soda, telur, dan beberapa bahan lainnya, Anda bisa membuatnya. Ini sempurna untuk Natal. Ini adalah pilihan yang baik jika Anda mengikuti diet dairy free dan lacto ovo vegetarian.',
+    createdAt: '2022-11-29T01:41:53.308Z',
+    updatedAt: '2022-11-29T01:41:53.308Z',
   },
   {
-    id: 656481,
-    title: 'Poached Egg With Spinach and Tomato',
-    image: 'https://spoonacular.com/recipeImages/656481-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 14.7531,
-          unit: 'g',
-        },
-      ],
+    _id: '63856ae029b01772078ca054',
+    name: 'Puding Nasi',
+    image: 'https://spoonacular.com/recipeImages/658276-312x231.jpg',
+    category: {
+      _id: '3',
+      name: 'Dessert',
+      __v: 0,
     },
+    cal: 404.47,
+    protein: 11.85,
+    carb: 66.28,
+    fat: 10.23,
+    carbon: 0.42,
+    desc: 'Puding Nasi mungkin merupakan resep super bebas gluten dan lacto ovo vegetarian untuk dicoba. Resep ini menyajikan 4. resep ini mencakup 14% dari kebutuhan vitamin dan mineral harian Anda. Campuran beras bulir pendek, air, susu, dan beberapa bahan lainnya sudah cukup untuk membuat resep ini begitu beraroma. Ini bekerja dengan baik sebagai hidangan penutup.',
+    createdAt: '2022-11-29T02:13:52.210Z',
+    updatedAt: '2022-11-29T02:13:52.210Z',
   },
   {
-    id: 660227,
-    title: 'Skinny Green Monster Smoothie',
-    image: 'https://spoonacular.com/recipeImages/660227-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 17.9588,
-          unit: 'g',
-        },
-      ],
+    _id: '63856ae029b01772078ca055',
+    name: 'Madeleine',
+    image: 'https://spoonacular.com/recipeImages/650601-312x231.jpg',
+    category: {
+      _id: '3',
+      name: 'Dessert',
+      __v: 0,
     },
-  },
-  {
-    id: 650377,
-    title: 'Low Carb Brunch Burger',
-    image: 'https://spoonacular.com/recipeImages/650377-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 53.7958,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 659604,
-    title: 'Scrambled tofu with rocket',
-    image: 'https://spoonacular.com/recipeImages/659604-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 16.625,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 662291,
-    title: 'Sun-Dried Tomato and Leek Quiche',
-    image: 'https://spoonacular.com/recipeImages/662291-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 17.8236,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 664054,
-    title: 'Turkey Sausage, Chard & Sweet Potato Breakfast Scramble',
-    image: 'https://spoonacular.com/recipeImages/664054-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 31.7569,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 661886,
-    title: 'Strawberry Shortcake Pancakes',
-    image: 'https://spoonacular.com/recipeImages/661886-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 19.0184,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 638825,
-    title: 'CHOCOLATE BANANA MORNING BUZZ SMOOTHIE',
-    image: 'https://spoonacular.com/recipeImages/638825-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 11.3349,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 637904,
-    title: 'Chicken and Leek Porridge',
-    image: 'https://spoonacular.com/recipeImages/637904-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 13.2089,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 636026,
-    title: 'Breakfast Biscuits and Gravy',
-    image: 'https://spoonacular.com/recipeImages/636026-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 42.9825,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 715569,
-    title: 'Strawberry Cheesecake Chocolate Crepes',
-    image: 'https://spoonacular.com/recipeImages/715569-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 16.2321,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 1497523,
-    title: 'Peanut Butter Banana Smoothie',
-    image: 'https://spoonacular.com/recipeImages/1497523-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 10.8095,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 1100990,
-    title:
-      'Blueberry, Chocolate & Cocao Superfood Pancakes - Gluten-Free/Paleo/Vegan',
-    image: 'https://spoonacular.com/recipeImages/1100990-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 12.0055,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 655239,
-    title: 'Peanut Butter Banana French Toast',
-    image: 'https://spoonacular.com/recipeImages/655239-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 21.0312,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 640194,
-    title:
-      'Country Breakfast: Tofu and Veggie Scramble With Home Fries',
-    image: 'https://spoonacular.com/recipeImages/640194-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 24.5758,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 636199,
-    title: 'Broccoli Oatmeal Breakfast Casserole',
-    image: 'https://spoonacular.com/recipeImages/636199-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 13.1285,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 650239,
-    title: 'Loaded Veggie Omelet',
-    image: 'https://spoonacular.com/recipeImages/650239-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 20.6229,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 1747693,
-    title: 'Your Basic Low Carb Breakfast',
-    image: 'https://spoonacular.com/recipeImages/1747693-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 20.6452,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 664280,
-    title: 'Vanilla Bean Cherry Granola Bars',
-    image: 'https://spoonacular.com/recipeImages/664280-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 12.2949,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 639131,
-    title: 'Chocolate Overnight Oats & Berries',
-    image: 'https://spoonacular.com/recipeImages/639131-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 19.081,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 661984,
-    title: 'Stuffed Breakfast Balls',
-    image: 'https://spoonacular.com/recipeImages/661984-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 30.9762,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 637705,
-    title: 'Cherries and Yogurt Parfait',
-    image: 'https://spoonacular.com/recipeImages/637705-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 15.7849,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 640636,
-    title: 'Creamy Egg Marinara Breakfast Dip',
-    image: 'https://spoonacular.com/recipeImages/640636-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 22.4516,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 636588,
-    title: 'Butternut Squash French Toast',
-    image: 'https://spoonacular.com/recipeImages/636588-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 15.6917,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 635488,
-    title: 'Blueberry Lemon Pancakes',
-    image: 'https://spoonacular.com/recipeImages/635488-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 16.4443,
-          unit: 'g',
-        },
-      ],
-    },
-  },
-  {
-    id: 659596,
-    title:
-      'Scrambled Egg-Stuffed Poblano Chiles With Spicy Cheese Sauce',
-    image: 'https://spoonacular.com/recipeImages/659596-312x231.jpg',
-    imageType: 'jpg',
-    nutrition: {
-      nutrients: [
-        {
-          name: 'Protein',
-          amount: 26.0853,
-          unit: 'g',
-        },
-      ],
-    },
+    cal: 130.59,
+    protein: 2.03,
+    carb: 15.31,
+    fat: 7.03,
+    carbon: 0.55,
+    desc: 'Madeleine atau petite madeleine adalah kue kecil tradisional dari Commercy dan Liverdun, dua komune wilayah Lorraine di timur laut Prancis. Madeleine adalah kue bolu yang sangat kecil dengan bentuk seperti cangkang yang khas yang diperoleh dari dipanggang dalam panci dengan cekungan berbentuk cangkang.',
+    createdAt: '2022-11-29T02:13:52.211Z',
+    updatedAt: '2022-11-29T02:13:52.211Z',
   },
 ];
-export { fakeData };
+export default RecomDefault;

@@ -13,7 +13,7 @@ const TrackNutrition = () => {
 
     return percent.toFixed(1);
   };
-  console.log(food);
+
   return (
     <Stack className=" w-100 bg-body rounded d-flex flex-column justify-content-between align-items-center gap-5 ">
       <NutritionProgress

@@ -5,8 +5,6 @@ import React, {
   useState,
 } from 'react';
 
-import './detail.css';
-
 import { Col, Row, Stack } from 'react-bootstrap';
 import ServicePortal from '../../components/Portal';
 import { TextOne } from '../../components/atoms/Fonts';

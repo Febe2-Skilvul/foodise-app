@@ -1,10 +1,6 @@
-import React, { useContext, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import CategoryBar from '../../components/CategoryBar';
 import FoodsCategory from '../../components/FoodsCategory';
-
-import ListFoods from '../../components/ListFoods';
-
 import ServicePortal from '../../components/Portal';
 
 const Category = () => {
