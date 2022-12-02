@@ -19,7 +19,7 @@ const ServicePortal = () => {
   useEffect(() => {
     dispatch(trackingDay(user.token));
   }, [update]);
-  console.log(res.track.data);
+
   return (
     <>
       <Stack

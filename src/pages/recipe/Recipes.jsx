@@ -22,7 +22,7 @@ const Recipes = () => {
     dispatch(fetchRecipe({ token: user.token }));
   }, []);
 
-  console.log(res.foods);
+  console.log('recipes', res.foods);
 
   return (
     <>
@@ -48,6 +48,9 @@ const Recipes = () => {
                         key={i}
                         image={recipe.food.image}
                         id={recipe._id}
+                        calori={recipe.food.cal}
+                        carbon={recipe.food.carbon}
+                        timeServe={recipe.timeServing}
                       />
                     );
                   })}

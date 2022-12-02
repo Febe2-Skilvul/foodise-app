@@ -1,6 +1,12 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { Container, Dropdown, Navbar } from 'react-bootstrap';
+import {
+  Container,
+  Dropdown,
+  Navbar,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { filterCtx } from '../app/context/FilterContext';
 import { loginCtx } from '../app/context/LoginContext';
@@ -20,6 +26,11 @@ const Appbar = () => {
     setQuery(' ');
     setCategory(0);
   };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {props}
+    </Tooltip>
+  );
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
@@ -39,15 +50,25 @@ const Appbar = () => {
 
         <div className="container-nav">
           <div className="box-nav d-none d-md-flex">
-            <Link to={'/favorite'} className="btn-icon">
-              <Icon
-                image="/icons/bowl-food-solid.svg"
-                alt="favorite"
-              />
-            </Link>
-            <Link to={'/recipe'} className="btn-icon">
-              <Icon image="/icons/book-recipe.svg" alt="recipe" />
-            </Link>
+            <OverlayTrigger
+              placement="right"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip('favorite')}>
+              <Link to={'/favorite'} className="btn-icon">
+                <Icon
+                  image="/icons/bowl-food-solid.svg"
+                  alt="favorite"
+                />
+              </Link>
+            </OverlayTrigger>
+            <OverlayTrigger
+              placement="right"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip('resep')}>
+              <Link to={'/recipe'} className="btn-icon">
+                <Icon image="/icons/book-recipe.svg" alt="recipe" />
+              </Link>
+            </OverlayTrigger>
           </div>
           <Dropdown>
             <Dropdown.Toggle
@@ -73,7 +94,7 @@ const Appbar = () => {
               </Link>
 
               <Link
-                to="/booked"
+                to="/favorite"
                 className="text-decoration-none  nav">
                 Favorites
               </Link>
