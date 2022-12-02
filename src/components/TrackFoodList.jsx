@@ -8,7 +8,6 @@ const TrackFoodList = () => {
     (state) => state.trackDate.track.data.tracking.food
   );
 
-  console.log(foods);
   return (
     <Stack className="track-food-container">
       {foods.map((food, i) => {

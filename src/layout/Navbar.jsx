@@ -25,11 +25,7 @@ const Appbar = () => {
     setQuery(' ');
     setCategory(0);
   };
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      {props}
-    </Tooltip>
-  );
+
   return (
     <Navbar expand="lg" className="navbar">
       <Container>
@@ -49,25 +45,16 @@ const Appbar = () => {
 
         <div className="container-nav">
           <div className="box-nav d-none d-md-flex">
-            <OverlayTrigger
-              placement="right"
-              delay={{ show: 250, hide: 400 }}
-              overlay={renderTooltip('favorite')}>
-              <Link to={'/favorite'} className="btn-icon">
-                <Icon
-                  image="/icons/bowl-food-solid.svg"
-                  alt="favorite"
-                />
-              </Link>
-            </OverlayTrigger>
-            <OverlayTrigger
-              placement="right"
-              delay={{ show: 250, hide: 400 }}
-              overlay={renderTooltip('resep')}>
-              <Link to={'/recipe'} className="btn-icon">
-                <Icon image="/icons/book-recipe.svg" alt="recipe" />
-              </Link>
-            </OverlayTrigger>
+            <Link to={'/favorite'} className="btn-icon">
+              <Icon
+                image="/icons/bowl-food-solid.svg"
+                alt="favorite"
+              />
+            </Link>
+
+            <Link to={'/recipe'} className="btn-icon">
+              <Icon image="/icons/book-recipe.svg" alt="recipe" />
+            </Link>
           </div>
           <Dropdown>
             <Dropdown.Toggle

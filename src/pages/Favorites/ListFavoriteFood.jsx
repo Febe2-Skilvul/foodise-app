@@ -24,7 +24,7 @@ const ListFavoriteFood = () => {
         marginTop: '50px',
       }}>
       {res.loading && <Loading />}
-      {res.foods !== null && !res.loading
+      {res.foods && !res.loading
         ? res.foods.map((favorite, i) => {
             return (
               <CardFood

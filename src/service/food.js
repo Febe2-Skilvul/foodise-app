@@ -12,7 +12,6 @@ export async function setFavoriteFoods(token, body) {
   return response;
 }
 export async function removeFavoriteFoods(token, id) {
-  console.log(id);
   const response = await axios
     .delete(`https://foodise-back-end.deta.dev/favorites/${id}`, {
       headers: {
