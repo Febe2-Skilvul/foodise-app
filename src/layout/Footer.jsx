@@ -26,13 +26,8 @@ function Footer() {
         <Stack>
           <div className="d-flex flex-column align-items-start p-2 gap-1">
             <h6>Credit:</h6>
-            <p>
-              API by{' '}
-              <a href="https://spoonacular.com/food-api">
-                Spoonacular
-              </a>
-            </p>
             <p>Icon by FontAwesome</p>
+            <p>Photos by Unsplash </p>
             <p>Our Partner Danone </p>
             <p>Special Credit for Skilvul</p>
           </div>
