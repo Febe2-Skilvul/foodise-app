@@ -3,7 +3,6 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import { postSignupUser } from '../service/auth';
 import ButtonLoad from './atoms/ButtonLoad';
 import { TextOne } from './atoms/Fonts';
-import Loading from './atoms/Loading';
 import SignupSuccess from './atoms/SignupSuccess';
 
 const FormSignup = () => {

@@ -1,27 +1,24 @@
 import React from 'react';
 import { Button, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { fakeData } from '../config/foods';
-import { TextOne } from './atoms/Fonts';
 import CardFood from './CardFood';
+import RecomDefault from '../config/foods';
 
 const RecommendedFood = () => {
   return (
     <>
       <Stack className="recommended-box">
-        {fakeData.map((food, i) => {
-          if (i < 4) {
-            return (
-              <CardFood
-                key={i}
-                name={food.title}
-                id={food.id}
-                img={food.image}
-                calori={20.33}
-                carbon={0.45}
-              />
-            );
-          }
+        {RecomDefault.map((food, i) => {
+          return (
+            <CardFood
+              key={i}
+              name={food.name}
+              id={food._id}
+              img={food.image}
+              calori={food.cal}
+              carbon={food.carbon}
+            />
+          );
         })}
       </Stack>
       <Link to="/home" className="text-decoration-none">
